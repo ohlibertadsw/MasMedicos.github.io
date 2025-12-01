@@ -1,44 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad - Más Médicos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Política de Tratamiento de Datos Personales — ConMisMédicos</title>
+  <style>
+    :root{--bg:#ffffff;--text:#0b1630;--accent:#d32f2f;--muted:#5b6876;--card:#f7f9fb}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;line-height:1.6;color:var(--text);background:var(--bg);padding:24px}
+    .container{max-width:900px;margin:0 auto;background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 18px rgba(11,22,48,0.06)}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+    header h1{font-size:20px;margin:0}
+    header p{margin:0;color:var(--muted);font-size:13px}
+    nav.toc{background:#fff;padding:12px;border-radius:8px;margin-bottom:18px}
+    nav.toc h2{font-size:16px;margin:0 0 8px 0}
+    nav.toc ul{margin:0;padding-left:18px}
+    nav.toc a{color:var(--accent);text-decoration:none}
+    section{margin-bottom:18px;padding:14px 12px;border-radius:8px;background:transparent}
+    h2{font-size:16px;margin:0 0 8px 0}
+    h3{font-size:14px;margin:0 0 8px 0;color:var(--muted)}
+    p{margin:0 0 10px 0}
+    .contact, .metadata{background:#fff;padding:12px;border-radius:8px}
+    footer{margin-top:18px;font-size:13px;color:var(--muted)}
+    code{background:#eef2f6;padding:2px 6px;border-radius:4px;font-family:monospace}
+    @media (prefers-color-scheme:dark){:root{--bg:#061223;--text:#e6f0fb;--card:#051826;--muted:#9fb2c9} body{background:var(--bg)} .container{box-shadow:none}}
+  </style>
 </head>
 <body>
-    <h1>Política de Privacidad de Más Médicos Mobile</h1>
-    <p><strong>Última Modificación:</strong> 29 de abril de 2025</p>
-    <p>En Más Médicos Mobile, valoramos tu privacidad. Esta política explica cómo tratamos tus datos.</p>
+  <div class="container">
+    <header>
+      <div>
+        <h1>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
+        <p><strong>IPS MasMédicos – Aplicativo ConMisMédicos</strong></p>
+      </div>
+    </header>
 
-    <h2>1. Información que Recopilamos</h2>
-    <p>Recopilamos archivos como imágenes, PDFs, y XLSX que subes para facilitar la comunicación entre pacientes y médicos. También accedemos a permisos de almacenamiento para cargar archivos locales y usamos URLs para descargar archivos web.</p>
+    <nav class="toc" aria-label="Índice">
+      <h2>Contenido</h2>
+      <ul>
+        <li><a href="#presentacion">1. Presentación</a></li>
+        <li><a href="#marco">2. Marco normativo</a></li>
+        <li><a href="#definiciones">3. Definiciones</a></li>
+        <li><a href="#responsable">4. Responsable del tratamiento</a></li>
+        <li><a href="#finalidades">5. Tratamiento y finalidades</a></li>
+        <li><a href="#datos">6. Datos personales tratados</a></li>
+        <li><a href="#transferencia">7. Transferencia y transmisión internacional</a></li>
+        <li><a href="#derechos">8. Derechos de los titulares</a></li>
+        <li><a href="#procedimientos">9. Procedimientos para consultas y reclamos</a></li>
+        <li><a href="#seguridad">10. Seguridad de la información</a></li>
+        <li><a href="#vigencia">11. Vigencia y modificaciones</a></li>
+        <li><a href="#contacto">12. Contacto</a></li>
+      </ul>
+    </nav>
 
-    <h2>2. Cómo Usamos tus Datos</h2>
-    <p>Usamos tus archivos únicamente para permitir la comunicación dentro de la app. No usamos tus datos para fines comerciales ni los compartimos con terceros, salvo con servicios necesarios como Firebase para almacenamiento.</p>
+    <section id="presentacion">
+      <h2>1. PRESENTACIÓN</h2>
+      <p>IPS Masmedicos IOS SAS. Representante legal <strong>John Jairo Ocampo Villa</strong>. Documento de identificación: <strong>NIT 901154336-9</strong>, identificada como empresa dedicada a la prestación de servicios de salud asistida y telemedicina mediante el aplicativo <strong>ConMisMédicos</strong> (en adelante “la Compañía” o “el Aplicativo”), informa a todos los usuarios, pacientes, afiliados, proveedores y colaboradores su Política de Tratamiento de Datos Personales, en cumplimiento de la legislación colombiana y estándares internacionales aplicables.</p>
+      <p>La presente política establece las condiciones, finalidades y procedimientos que gobiernan el tratamiento de la información personal y sensible que se recolecta a través del Aplicativo ConMisMédicos, así como los derechos que asisten a los titulares de la información.</p>
+    </section>
 
-    <h2>3. Medidas de Seguridad</h2>
-    <p>Protegemos tus datos con cifrado durante la transmisión y almacenamiento.</p>
+    <section id="marco">
+      <h2>2. MARCO NORMATIVO</h2>
+      <p>Esta política se adopta conforme a:</p>
+      <ul>
+        <li>La Constitución Política de Colombia, artículos 15 y 20.</li>
+        <li>La Ley Estatutaria 1581 de 2012, Decreto 1377 de 2013 y demás normas complementarias.</li>
+        <li>El Decreto 1751 de 2015 (Sistema General de Seguridad Social en Salud).</li>
+        <li>La normativa estadounidense HIPAA – Health Insurance Portability and Accountability Act, en lo relativo a protección de datos de salud (PHI) cuando existan operaciones o tratamiento en territorio de los EE. UU.</li>
+        <li>Las políticas y lineamientos de Google Play para el tratamiento de datos y uso de permisos sensibles.</li>
+      </ul>
+      <p><strong>IPS MASMEDICOS IOS SAS.</strong> garantiza que el tratamiento se realizará de manera segura, confidencial, lícita y transparente.</p>
+    </section>
 
-    <h2>4. Niños Menores de 13 Años</h2>
-    <p>Más Médicos no está dirigida a niños menores de 13 años. Si un padre o tutor cree que hemos recopilado datos de un menor sin consentimiento, contáctenos en <a href="ohlibertadsw@gmail.com">ohlibertadsw@gmail.com</a> para eliminarlos.</p>
+    <section id="definiciones">
+      <h2>3. DEFINICIONES</h2>
+      <p>Para efectos de esta política se aplican las siguientes definiciones:</p>
+      <ul>
+        <li><strong>Dato Personal:</strong> Toda información que permita identificar o asociar a una persona natural.</li>
+        <li><strong>Dato Sensible:</strong> Información que afecta la intimidad del titular, como datos relacionados con salud, historia clínica, diagnósticos, exámenes y datos biométricos.</li>
+        <li><strong>Dato de Salud / PHI (HIPAA):</strong> Toda información relacionada con el estado de salud de una persona, generada en un servicio de atención médica.</li>
+        <li><strong>Tratamiento:</strong> Cualquier operación sobre datos personales (recolección, almacenamiento, uso, transmisión, supresión, etc.).</li>
+        <li><strong>Autorización:</strong> Consentimiento previo, expreso e informado del titular para el tratamiento de sus datos.</li>
+      </ul>
+    </section>
 
-    <h2>5. Tus Derechos</h2>
-    <p>Puedes solicitar el acceso, corrección o eliminación de tus datos contactándonos en <a href="ohlibertadsw@gmail.com">ohlibertadsw@gmail.com</a>.</p>
+    <section id="responsable" class="metadata">
+      <h2>4. RESPONSABLE DEL TRATAMIENTO</h2>
+      <p><strong>Razón social:</strong> IPS Masmedicos IOS SAS.</p>
+      <p><strong>Aplicativo:</strong> ConMisMédicos</p>
+      <p><strong>Domicilio:</strong> Carrera 64 a n 78-581, Medellín, Colombia</p>
+      <p><strong>Correo de contacto:</strong> <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+      <p><strong>Teléfono:</strong> <a href="tel:+573012519764">+57 301 251 9764</a></p>
+      <p>IPS MASMEDICOS IOS SAS. podrá delegar el tratamiento a Encargados que cumplan estándares equivalentes de seguridad y confidencialidad, incluyendo proveedores ubicados en Colombia, Estados Unidos u otros países.</p>
+    </section>
 
-    <h2>6. Cambios en esta Política</h2>
-    <p>Notificaremos cambios materiales actualizando esta política y mediante notificaciones en la app.</p>
+    <section id="finalidades">
+      <h2>5. TRATAMIENTO Y FINALIDADES DE LA INFORMACIÓN</h2>
+      <p>IPS MASMEDICOS IOS SAS. recolecta y trata datos personales para las siguientes finalidades:</p>
 
-    <h2>7. Contacto</h2>
-    <p>Para preguntas, contáctanos en <a href="mailto:ohlibertadsw@gmail.com">ohlibertadsw@gmail.com</a>.</p>
+      <h3>5.1 Finalidades asistenciales y clínicas</h3>
+      <ul>
+        <li>Prestación de servicios de telemedicina y atención médica remota mediante ConMisMédicos.</li>
+        <li>Acceso, registro y actualización de información clínica relevante.</li>
+        <li>Generación de historias clínicas digitales, evoluciones, diagnósticos y recomendaciones.</li>
+        <li>Comunicación directa entre pacientes y profesionales de salud.</li>
+        <li>Programación de citas, recordatorios y seguimiento médico.</li>
+      </ul>
+
+      <h3>5.2 Finalidades administrativas y operativas</h3>
+      <ul>
+        <li>Creación y gestión de cuentas de usuario.</li>
+        <li>Autenticación segura, validación de identidad y prevención de fraude.</li>
+        <li>Facturación, soporte, auditoría y procesos administrativos vinculados al servicio.</li>
+        <li>Gestión de peticiones, quejas y reclamos (PQR).</li>
+      </ul>
+
+      <h3>5.3 Finalidades legales y regulatorias</h3>
+      <ul>
+        <li>Cumplimiento de obligaciones derivadas de la normativa de salud en Colombia.</li>
+        <li>Conservación de la historia clínica según disposiciones legales.</li>
+        <li>Atender requerimientos de autoridades competentes.</li>
+      </ul>
+
+      <h3>5.4 Finalidades tecnológicas</h3>
+      <ul>
+        <li>Optimización y mejora continua del aplicativo ConMisMédicos.</li>
+        <li>Análisis de desempeño, métricas de uso y seguridad informática.</li>
+        <li>Monitoreo de accesos y detección de actividades irregulares.</li>
+      </ul>
+
+      <p><strong>Prohibiciones expresas</strong></p>
+      <p>IPS MASMEDICOS IOS SAS. NO utilizará datos personales o sensibles para:</p>
+      <ul>
+        <li>Publicidad no autorizada.</li>
+        <li>Venta o cesión de bases de datos.</li>
+        <li>Fines distintos a los previstos en esta Política.</li>
+      </ul>
+    </section>
+
+    <section id="datos">
+      <h2>6. DATOS PERSONALES TRATADOS</h2>
+      <p>De acuerdo con la naturaleza del servicio, ConMisMédicos podrá recolectar:</p>
+
+      <h3>6.1 Datos de identificación</h3>
+      <p>Nombre, tipo y número de documento, correo electrónico, teléfono, fecha de nacimiento, dirección, fotografía y datos de contacto.</p>
+
+      <h3>6.2 Datos sensibles (salud)</h3>
+      <p>Historia clínica, diagnósticos, resultados de exámenes, antecedentes, medicamentos, signos vitales, motivos de consulta, documentos médicos.</p>
+
+      <h3>6.3 Datos técnicos y de uso</h3>
+      <p>Dirección IP, tipo de dispositivo, sistema operativo, identificadores únicos, registros de actividad en la aplicación, fallas, tiempos de uso, navegación interna.</p>
+
+      <h3>6.4 Permisos del dispositivo</h3>
+      <p>Cámara (videoconsultas, captura de documentos). Micrófono (teleconsulta por voz). Almacenamiento (cargar/descargar exámenes o soportes médicos). Notificaciones (recordatorios médicos y avisos clínicos).</p>
+      <p>Estos permisos se usan exclusivamente para las funciones asistenciales del servicio.</p>
+    </section>
+
+    <section id="transferencia">
+      <h2>7. TRANSFERENCIA Y TRANSMISIÓN INTERNACIONAL</h2>
+      <p>Los datos podrán almacenarse en servidores ubicados en:</p>
+      <ul>
+        <li>Colombia</li>
+        <li>Estados Unidos</li>
+        <li>Otros países con proveedores que cumplan estándares adecuados de protección</li>
+      </ul>
+      <p>Cuando exista tratamiento en EE. UU. relacionado con datos de salud, IPS MASMEDICOS IOS SAS. y sus proveedores cumplirán los principios y acuerdos requeridos bajo HIPAA, incluyendo:</p>
+      <ul>
+        <li>Cifrado en tránsito y reposo</li>
+        <li>Control estricto de accesos</li>
+        <li>Business Associate Agreements (BAA) cuando aplican</li>
+        <li>Protocolos de auditoría y trazabilidad</li>
+      </ul>
+    </section>
+
+    <section id="derechos">
+      <h2>8. DERECHOS DE LOS TITULARES</h2>
+      <p>Los titulares podrán ejercer los siguientes derechos:</p>
+      <ul>
+        <li>Conocer, acceder y obtener copia de sus datos personales o de salud.</li>
+        <li>Actualizar, rectificar y suprimir información.</li>
+        <li>Solicitar prueba de la autorización otorgada.</li>
+        <li>Ser informados sobre el uso de sus datos.</li>
+        <li>Presentar quejas ante la Superintendencia de Industria y Comercio.</li>
+        <li>Revocar la autorización cuando sea procedente.</li>
+      </ul>
+      <p>Para ejercer estos derechos, el usuario podrá contactarnos en: <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+    </section>
+
+    <section id="procedimientos">
+      <h2>9. PROCEDIMIENTOS PARA CONSULTAS Y RECLAMOS</h2>
+      <p>IPS MASMEDICOS IOS SAS. pone a disposición del titular los siguientes mecanismos:</p>
+      <ul>
+        <li><strong>Consultas:</strong> Serán resueltas en un término máximo de 10 días hábiles.</li>
+        <li><strong>Reclamos:</strong> Se resolverán dentro de los 15 días hábiles siguientes a la recepción.</li>
+      </ul>
+      <p>En caso de requerir información adicional, se pausará el término legal hasta recibirla.</p>
+    </section>
+
+    <section id="seguridad">
+      <h2>10. SEGURIDAD DE LA INFORMACIÓN</h2>
+      <p>IPS MASMEDICOS IOS SAS. implementa medidas de seguridad administrativas, técnicas y tecnológicas, tales como:</p>
+      <ul>
+        <li>Cifrado de datos (TLS/HTTPS – AES 256).</li>
+        <li>Gestión de accesos basada en roles.</li>
+        <li>Registro de auditorías clínicas.</li>
+        <li>Monitoreo de incidentes.</li>
+        <li>Servidores certificados y respaldos periódicos.</li>
+      </ul>
+      <p>No obstante, ningún sistema es completamente infalible; sin embargo, la Compañía se compromete a aplicar las mejores prácticas disponibles para proteger la información.</p>
+    </section>
+
+    <section id="vigencia">
+      <h2>11. VIGENCIA Y MODIFICACIONES DE LA POLÍTICA</h2>
+      <p>Esta Política entra en vigencia a partir de su publicación y podrá ser modificada en cualquier momento. Cualquier actualización será informada a los titulares a través del aplicativo ConMisMédicos o por correo electrónico.</p>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h2>12. CONTACTO</h2>
+      <p>Para ejercer derechos, solicitar información o reportar incidentes relacionados con datos personales:</p>
+      <p><strong>IPS MASMEDICOS IOS SAS.</strong></p>
+      <p>Correo: <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+      <p>Teléfono: <a href="tel:+573012519764">+57 301 251 9764</a></p>
+      <p>Dirección: Carrera 64 a n 78-581, Medellín, Colombia</p>
+    </section>
+
+    <footer>
+      <p>Documento generado automáticamente. Para actualizaciones o solicitudes especiales, contacte al correo indicado.</p>
+    </footer>
+  </div>
 </body>
 </html>
