@@ -20,9 +20,9 @@
     html{scroll-behavior:smooth;scroll-padding-top:16px}
     body{margin:0;background:var(--desk);color:var(--ink);font-family:Arial, Helvetica, "Helvetica Neue", sans-serif;font-size:16px;line-height:1.65}
     a{color:var(--navy)}
-    .page{position:relative;max-width:920px;margin:32px auto;background:var(--paper);box-shadow:0 8px 28px rgba(0,30,70,.10);padding:48px 64px 0;overflow:hidden}
-    /* Marca de agua del documento */
-    .page::before{content:"";position:absolute;inset:260px 40px auto;height:min(70vw,620px);background:url("assets/monograma-ma.png") center top/contain no-repeat;opacity:.55;pointer-events:none;z-index:0}
+    .page{position:relative;max-width:920px;margin:32px auto 0;background:var(--paper);box-shadow:0 8px 28px rgba(0,30,70,.10);padding:48px 64px 0;overflow:clip}
+    /* Marca de agua: fija en el centro de la pantalla, como en cada página del Word */
+    .page::before{content:"";position:fixed;top:50%;left:50%;width:min(720px,82vw);aspect-ratio:1809/1374;transform:translate(-50%,-42%);background:url("assets/monograma-ma.png") center/contain no-repeat;pointer-events:none;z-index:0}
     .page > *{position:relative;z-index:1}
 
     /* Encabezado tipo formato institucional */
@@ -70,21 +70,21 @@
     p.modalidad{font-weight:700;margin:12px 0 6px}
     p.paragrafo{margin:22px 0 8px}
 
-    /* Pie de página institucional */
-    .doc-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:48px -64px 0;padding:0 0 0 64px;min-height:190px}
-    .doc-footer .contact{padding-bottom:28px;font-size:15px;line-height:1.5}
+    /* Pie de página institucional: siempre visible abajo, como en cada página del Word */
+    .doc-footer{position:sticky;bottom:0;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:48px -64px 0;padding:0 0 0 64px;height:150px;background:var(--paper);box-shadow:0 -10px 18px -12px rgba(0,30,70,.18)}
+    .doc-footer .contact{padding-bottom:22px;font-size:14px;line-height:1.45}
     .doc-footer .contact .tag{margin:0;letter-spacing:.03em;text-align:left}
-    .doc-footer .contact .addr{margin:0;font-weight:700;font-size:18px;letter-spacing:.04em;text-align:left}
+    .doc-footer .contact .addr{margin:0;font-weight:700;font-size:17px;letter-spacing:.04em;text-align:left}
     .doc-footer .contact .addr a{color:inherit;text-decoration:none}
-    .doc-footer .contact svg{width:18px;height:18px;vertical-align:-3px;margin:0 6px 0 10px}
-    .doc-footer .contact .mail{margin:6px 0 0;font-size:14px;text-align:left}
-    .wave{position:relative;flex:0 0 auto;width:360px;height:240px;margin-right:0}
+    .doc-footer .contact svg{width:17px;height:17px;vertical-align:-3px;margin:0 6px 0 10px}
+    .doc-footer .contact .mail{margin:4px 0 0;font-size:13px;text-align:left}
+    .wave{position:relative;flex:0 0 auto;width:225px;height:150px}
     .wave svg{display:block;width:100%;height:100%}
-    .wave img{position:absolute;right:28px;bottom:22px;width:86px;height:auto;border-radius:10px}
+    .wave img{position:absolute;right:18px;bottom:14px;width:56px;height:auto;border-radius:8px}
 
     @media (max-width:760px){
       .page{margin:0;padding:24px 16px 0;box-shadow:none}
-      .page::before{inset:200px 8px auto}
+      .page::before{width:88vw}
       .doc-header{grid-template-columns:1fr}
       .doc-header > div{border-right:0;border-bottom:1px solid var(--line)}
       .doc-header > div:last-child{border-bottom:0}
@@ -92,15 +92,20 @@
       .doc-title{font-size:18px}
       .toc > ol{columns:1}
       p{text-align:left}
-      .doc-footer{flex-direction:column;align-items:stretch;margin:40px -16px 0;padding:0}
-      .doc-footer .contact{padding:0 16px}
-      .doc-footer .contact .addr{font-size:16px}
-      .wave{align-self:flex-end;width:270px;height:180px}
-      .wave img{width:64px;right:20px;bottom:16px}
+      .doc-footer{gap:8px;margin:40px -16px 0;padding:0 0 0 16px;height:96px}
+      .doc-footer .contact{padding-bottom:12px;font-size:10.5px;line-height:1.35}
+      .doc-footer .contact .addr{font-size:12px;letter-spacing:.02em}
+      .doc-footer .contact .addr a{display:block}
+      .doc-footer .contact svg{display:none}
+      .doc-footer .contact .mail{font-size:10.5px}
+      .wave{width:132px;height:96px}
+      .wave img{width:38px;right:10px;bottom:8px;border-radius:6px}
     }
     @media print{
       body{background:#fff}
       .page{box-shadow:none;margin:0;max-width:none}
+      .page::before{position:absolute;top:400px}
+      .doc-footer{position:static;box-shadow:none}
       .toc{display:none}
     }
   </style>
@@ -118,7 +123,7 @@
       <div class="doc-title">Política de tratamiento de datos personales</div>
       <div class="meta">
         <p><strong>Código:</strong></p>
-        <p><strong>Versión:</strong><em>Borrador</em></p>
+        <p><strong>Versión:</strong><em>1</em></p>
         <p><strong>Fecha:</strong><em>Julio 2026</em></p>
       </div>
     </header>
