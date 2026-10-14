@@ -3,229 +3,855 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Política de Tratamiento de Datos Personales — ConMisMédicos</title>
+  <title>Política de Tratamiento de Datos Personales — IPS MASMEDICOS IOS S.A.S.</title>
+  <meta name="description" content="Política de Tratamiento de Datos Personales de IPS MASMEDICOS IOS S.A.S. (NIT 901.154.336-9) y su aplicativo ConMisMédicos.">
   <style>
-    :root{--bg:#ffffff;--text:#0b1630;--accent:#d32f2f;--muted:#5b6876;--card:#f7f9fb}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;line-height:1.6;color:var(--text);background:var(--bg);padding:24px}
-    .container{max-width:900px;margin:0 auto;background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 18px rgba(11,22,48,0.06)}
-    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
-    header h1{font-size:20px;margin:0}
-    header p{margin:0;color:var(--muted);font-size:13px}
-    nav.toc{background:#fff;padding:12px;border-radius:8px;margin-bottom:18px}
-    nav.toc h2{font-size:16px;margin:0 0 8px 0}
-    nav.toc ul{margin:0;padding-left:18px}
-    nav.toc a{color:var(--accent);text-decoration:none}
-    section{margin-bottom:18px;padding:14px 12px;border-radius:8px;background:transparent}
-    h2{font-size:16px;margin:0 0 8px 0}
-    h3{font-size:14px;margin:0 0 8px 0;color:var(--muted)}
-    p{margin:0 0 10px 0}
-    .contact, .metadata{background:#fff;padding:12px;border-radius:8px}
-    footer{margin-top:18px;font-size:13px;color:var(--muted)}
-    code{background:#eef2f6;padding:2px 6px;border-radius:4px;font-family:monospace}
-    @media (prefers-color-scheme:dark){:root{--bg:#061223;--text:#e6f0fb;--card:#051826;--muted:#9fb2c9} body{background:var(--bg)} .container{box-shadow:none}}
+    :root{
+      --ink:#111111;
+      --muted:#4a4a4a;
+      --line:#1d1d1b;
+      --navy:#004084;
+      --sky:#68c0de;
+      --sky-2:#57c3ea;
+      --paper:#ffffff;
+      --desk:#eef1f4;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:16px}
+    body{margin:0;background:var(--desk);color:var(--ink);font-family:Arial, Helvetica, "Helvetica Neue", sans-serif;font-size:16px;line-height:1.65}
+    a{color:var(--navy)}
+    .page{position:relative;max-width:920px;margin:32px auto;background:var(--paper);box-shadow:0 8px 28px rgba(0,30,70,.10);padding:48px 64px 0;overflow:hidden}
+    /* Marca de agua del documento */
+    .page::before{content:"";position:absolute;inset:260px 40px auto;height:min(70vw,620px);background:url("assets/monograma-ma.png") center top/contain no-repeat;opacity:.55;pointer-events:none;z-index:0}
+    .page > *{position:relative;z-index:1}
+
+    /* Encabezado tipo formato institucional */
+    .doc-header{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);margin-bottom:36px;background:var(--paper)}
+    .doc-header > div{border-right:1px solid var(--line)}
+    .doc-header > div:last-child{border-right:0}
+    .brand{padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+    .brand .masmedicos{width:100%;max-width:260px;height:auto;display:block}
+    .brand .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .brand .ma{width:120px;height:auto;opacity:.9}
+    .brand .cmm{width:92px;height:auto;border-radius:4px}
+    .doc-title{display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-weight:700;font-size:20px;line-height:1.3;text-transform:uppercase}
+    .meta{display:grid;grid-template-rows:repeat(3,1fr)}
+    .meta p{margin:0;padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;font-size:17px}
+    .meta p:last-child{border-bottom:0}
+    .meta em{margin-left:6px}
+
+    /* Título del documento */
+    .main-title{text-align:center;font-size:18px;font-weight:700;line-height:1.45;margin:0 0 34px}
+
+    /* Índice */
+    .toc{border:1px solid #d5dbe1;border-left:4px solid var(--sky);background:rgba(255,255,255,.92);padding:14px 18px;margin-bottom:36px}
+    .toc summary{cursor:pointer;font-weight:700;color:var(--navy);text-transform:uppercase;font-size:15px;letter-spacing:.02em}
+    .toc > ol{margin:14px 0 4px;padding-left:0;list-style:none;columns:2;column-gap:32px}
+    .toc > ol > li{break-inside:avoid;margin-bottom:12px}
+    .toc > ol > li > a{font-weight:700;text-decoration:none;color:var(--ink)}
+    .toc > ol > li > a span{display:block;font-size:12px;color:var(--navy);text-transform:uppercase;letter-spacing:.04em}
+    .toc ol ol{list-style:none;margin:4px 0 0;padding-left:0;font-size:13.5px;line-height:1.45}
+    .toc ol ol li{margin:3px 0}
+    .toc ol ol a{text-decoration:none;color:var(--muted)}
+    .toc a:hover{color:var(--navy);text-decoration:underline}
+
+    /* Cuerpo */
+    .chapter{margin-bottom:40px}
+    .chapter h2{text-align:center;font-size:17px;font-weight:700;text-transform:uppercase;line-height:1.45;margin:0 0 28px;padding-top:8px}
+    .chapter h2 .chapter-num{display:block}
+    .chapter h2::after{content:"";display:block;width:72px;height:3px;margin:12px auto 0;background:linear-gradient(90deg,var(--navy) 0 50%,var(--sky) 50% 100%)}
+    h3{font-size:16.5px;font-weight:700;margin:30px 0 14px}
+    h4.finalidad{font-size:15.5px;font-weight:700;text-transform:uppercase;margin:26px 0 10px}
+    h4.finalidad span{display:inline-block;min-width:1.6em}
+    p{margin:0 0 16px;text-align:justify;hyphens:auto}
+    p.item{margin:0 0 6px;padding-left:1.6em;text-indent:-1.6em}
+    p.item + p:not(.item){margin-top:16px}
+    p.def{margin-bottom:12px}
+    p.modalidad{font-weight:700;margin:12px 0 6px}
+    p.paragrafo{margin:22px 0 8px}
+
+    /* Pie de página institucional */
+    .doc-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:48px -64px 0;padding:0 0 0 64px;min-height:190px}
+    .doc-footer .contact{padding-bottom:28px;font-size:15px;line-height:1.5}
+    .doc-footer .contact .tag{margin:0;letter-spacing:.03em;text-align:left}
+    .doc-footer .contact .addr{margin:0;font-weight:700;font-size:18px;letter-spacing:.04em;text-align:left}
+    .doc-footer .contact .addr a{color:inherit;text-decoration:none}
+    .doc-footer .contact svg{width:18px;height:18px;vertical-align:-3px;margin:0 6px 0 10px}
+    .doc-footer .contact .mail{margin:6px 0 0;font-size:14px;text-align:left}
+    .wave{position:relative;flex:0 0 auto;width:360px;height:240px;margin-right:0}
+    .wave svg{display:block;width:100%;height:100%}
+    .wave img{position:absolute;right:28px;bottom:22px;width:86px;height:auto;border-radius:10px}
+
+    @media (max-width:760px){
+      .page{margin:0;padding:24px 16px 0;box-shadow:none}
+      .page::before{inset:200px 8px auto}
+      .doc-header{grid-template-columns:1fr}
+      .doc-header > div{border-right:0;border-bottom:1px solid var(--line)}
+      .doc-header > div:last-child{border-bottom:0}
+      .brand{align-items:center}
+      .doc-title{font-size:18px}
+      .toc > ol{columns:1}
+      p{text-align:left}
+      .doc-footer{flex-direction:column;align-items:stretch;margin:40px -16px 0;padding:0}
+      .doc-footer .contact{padding:0 16px}
+      .doc-footer .contact .addr{font-size:16px}
+      .wave{align-self:flex-end;width:270px;height:180px}
+      .wave img{width:64px;right:20px;bottom:16px}
+    }
+    @media print{
+      body{background:#fff}
+      .page{box-shadow:none;margin:0;max-width:none}
+      .toc{display:none}
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div>
-        <h1>POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
-        <p><strong>IPS MasMédicos – Aplicativo ConMisMédicos</strong></p>
+  <main class="page">
+    <header class="doc-header">
+      <div class="brand">
+        <img class="masmedicos" src="assets/logo-masmedicos.png" alt="MASMEDICOS — Especialistas en tu Empresa">
+        <div class="row">
+          <img class="ma" src="assets/monograma-ma.png" alt="" aria-hidden="true">
+          <img class="cmm" src="assets/logo-conmismedicos.jpg" alt="ConMisMédicos">
+        </div>
+      </div>
+      <div class="doc-title">Política de tratamiento de datos personales</div>
+      <div class="meta">
+        <p><strong>Código:</strong></p>
+        <p><strong>Versión:</strong><em>Borrador</em></p>
+        <p><strong>Fecha:</strong><em>Julio 2026</em></p>
       </div>
     </header>
 
-    <nav class="toc" aria-label="Índice">
-      <h2>Contenido</h2>
-      <ul>
-        <li><a href="#presentacion">1. Presentación</a></li>
-        <li><a href="#marco">2. Marco normativo</a></li>
-        <li><a href="#definiciones">3. Definiciones</a></li>
-        <li><a href="#responsable">4. Responsable del tratamiento</a></li>
-        <li><a href="#finalidades">5. Tratamiento y finalidades</a></li>
-        <li><a href="#datos">6. Datos personales tratados</a></li>
-        <li><a href="#transferencia">7. Transferencia y transmisión internacional</a></li>
-        <li><a href="#derechos">8. Derechos de los titulares</a></li>
-        <li><a href="#procedimientos">9. Procedimientos para consultas y reclamos</a></li>
-        <li><a href="#seguridad">10. Seguridad de la información</a></li>
-        <li><a href="#vigencia">11. Vigencia y modificaciones</a></li>
-        <li><a href="#contacto">12. Contacto</a></li>
-      </ul>
-    </nav>
+    <h1 class="main-title">POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES<br>IPS MASMEDICOS IOS S.A.S.</h1>
 
-    <section id="presentacion">
-      <h2>1. PRESENTACIÓN</h2>
-      <p>IPS Masmedicos IOS SAS. Representante legal <strong>John Jairo Ocampo Villa</strong>. Documento de identificación: <strong>NIT 901154336-9</strong>, identificada como empresa dedicada a la prestación de servicios de salud asistida y telemedicina mediante el aplicativo <strong>ConMisMédicos</strong> (en adelante “la Compañía” o “el Aplicativo”), informa a todos los usuarios, pacientes, afiliados, proveedores y colaboradores su Política de Tratamiento de Datos Personales, en cumplimiento de la legislación colombiana y estándares internacionales aplicables.</p>
-      <p>La presente política establece las condiciones, finalidades y procedimientos que gobiernan el tratamiento de la información personal y sensible que se recolecta a través del Aplicativo ConMisMédicos, así como los derechos que asisten a los titulares de la información.</p>
+    <details class="toc" open>
+      <summary>Contenido</summary>
+      <ol>
+        <li><a href="#capitulo-i"><span>Capítulo I</span> Disposiciones generales</a>
+          <ol>
+            <li><a href="#articulo-1">Art. 1. Objeto</a></li>
+            <li><a href="#articulo-2">Art. 2. Alcance</a></li>
+            <li><a href="#articulo-3">Art. 3. Ámbito de Aplicación</a></li>
+            <li><a href="#articulo-4">Art. 4. Identificación del Responsable del Tratamiento</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-ii"><span>Capítulo II</span> Marco jurídico y principios</a>
+          <ol>
+            <li><a href="#articulo-5">Art. 5. Marco Jurídico</a></li>
+            <li><a href="#articulo-6">Art. 6. Definiciones</a></li>
+            <li><a href="#articulo-7">Art. 7. Principios Rectores del Tratamiento de Datos Personales</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-iii"><span>Capítulo III</span> Datos personales objeto de tratamiento</a>
+          <ol>
+            <li><a href="#articulo-8">Art. 8. Categorías de Datos Personales Tratados</a></li>
+            <li><a href="#articulo-9">Art. 9. Tratamiento de Datos Personales Sensibles</a></li>
+            <li><a href="#articulo-10">Art. 10. Tratamiento de Datos Relativos a la Salud</a></li>
+            <li><a href="#articulo-11">Art. 11. Historia Clínica y Reserva Legal</a></li>
+            <li><a href="#articulo-12">Art. 12. Tratamiento de Datos Personales de Niños, Niñas y Adolescentes</a></li>
+            <li><a href="#articulo-13">Art. 13. Tratamiento de Datos Biométricos</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-iv"><span>Capítulo IV</span> Derechos de los titulares y deberes del resposable y de los encargados del tratamiento</a>
+          <ol>
+            <li><a href="#articulo-14">Art. 14. Derechos de los Titulares</a></li>
+            <li><a href="#articulo-15">Art. 15. Personas Legitimadas para Ejercer los Derechos del Titular</a></li>
+            <li><a href="#articulo-16">Art. 16. Deberes de IPS MASMEDICOS IOS S.A.S. como Responsable del Tratamiento</a></li>
+            <li><a href="#articulo-17">Art. 17. Deberes de los Encargados del Tratamiento</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-v"><span>Capítulo V</span> Autorización para el tratamiento de datos personales</a>
+          <ol>
+            <li><a href="#articulo-18">Art. 18. Autorización del Titular</a></li>
+            <li><a href="#articulo-19">Art. 19. Formas de Obtener y Acreditar la Autorización</a></li>
+            <li><a href="#articulo-20">Art. 20. Casos en los que no se Requiere Autorización</a></li>
+            <li><a href="#articulo-21">Art. 21. Revocatoria de la Autorización y Supresión de Datos</a></li>
+            <li><a href="#articulo-22">Art. 22. Autorización para el Tratamiento de Datos Sensibles y de Datos de Niños, Niñas y Adolescentes</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-vi"><span>Capítulo VI</span> Finalidades del tratamiento de datos personales</a>
+          <ol>
+            <li><a href="#articulo-23">Art. 23. Finalidades del Tratamiento de Datos Personales</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-vii"><span>Capítulo VII</span> Transferencia, transmisión y circulación de datos personales</a>
+          <ol>
+            <li><a href="#articulo-24">Art. 24. Transferencia Nacional e Internacional de Datos Personales</a></li>
+            <li><a href="#articulo-25">Art. 25. Transmisión de Datos Personales</a></li>
+            <li><a href="#articulo-26">Art. 26. Transmisión a Proveedores Tecnológicos y Aliados Estratégicos</a></li>
+            <li><a href="#articulo-27">Art. 27. Transferencia o Comunicación de Datos por Mandato Legal</a></li>
+            <li><a href="#articulo-28">Art. 28. Transferencias Internacionales y Servicios de Computación en la Nube</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-viii"><span>Capítulo VIII</span> Seguridad de la información, gestión de incidentes y responsabilidad demostrada (accountability)</a>
+          <ol>
+            <li><a href="#articulo-29">Art. 29. Sistema de Gestión para la Protección de Datos Personales</a></li>
+            <li><a href="#articulo-30">Art. 30. Medidas de Seguridad de la Información</a></li>
+            <li><a href="#articulo-31">Art. 31. Gestión de Incidentes de Seguridad</a></li>
+            <li><a href="#articulo-32">Art. 32. Responsabilidad Demostrada (Accountability)</a></li>
+            <li><a href="#articulo-33">Art. 33. Privacidad desde el Diseño y por Defecto</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-ix"><span>Capítulo IX</span> Procedimiento para el ejercicio de los derechos de los titulares</a>
+          <ol>
+            <li><a href="#articulo-34">Art. 34. Área Responsable de la Atención de Consultas y Reclamos</a></li>
+            <li><a href="#articulo-35">Art. 35. Derecho de Consulta</a></li>
+            <li><a href="#articulo-36">Art. 36. Derecho de Reclamo</a></li>
+            <li><a href="#articulo-37">Art. 37. Rectificación, Actualización y Supresión de Datos Personales</a></li>
+            <li><a href="#articulo-38">Art. 38. Revocatoria de la Autorización</a></li>
+            <li><a href="#articulo-39">Art. 39. Requisito de Procedibilidad ante la Superintendencia de Industria y Comercio</a></li>
+            <li><a href="#articulo-40">Art. 40. Gratuidad del Ejercicio de los Derechos</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-x"><span>Capítulo X</span> Tratamiento de datos en el aplicativo ConMisMédicos</a>
+          <ol>
+            <li><a href="#articulo-41">Art. 41. Tratamiento de Datos Personales a través del Aplicativo ConMisMédicos</a></li>
+            <li><a href="#articulo-42">Art. 42. Permisos del Dispositivo Móvil</a></li>
+            <li><a href="#articulo-43">Art. 43. Cumplimiento de las Políticas de Google Play</a></li>
+            <li><a href="#articulo-44">Art. 44. Tratamiento de Datos de Salud en los Estados Unidos (HIPAA)</a></li>
+          </ol>
+        </li>
+        <li><a href="#capitulo-xi"><span>Capítulo XI</span> Disposiciones finales</a>
+          <ol>
+            <li><a href="#articulo-45">Art. 45. Conservación de los Datos Personales</a></li>
+            <li><a href="#articulo-46">Art. 46. Actualización de la Política de Tratamiento de Datos Personales</a></li>
+            <li><a href="#articulo-47">Art. 47. Divulgación y Disponibilidad de la Política</a></li>
+            <li><a href="#articulo-48">Art. 48. Interpretación e Integración Normativa</a></li>
+            <li><a href="#articulo-49">Art. 49. Vigencia</a></li>
+            <li><a href="#articulo-50">Art. 50. Derogatorias</a></li>
+            <li><a href="#articulo-51">Art. 51. Aprobación</a></li>
+          </ol>
+        </li>
+      </ol>
+    </details>
+
+    <section class="chapter" id="capitulo-i">
+      <h2><span class="chapter-num">CAPÍTULO I</span>DISPOSICIONES GENERALES</h2>
+      <h3 id="articulo-1"><span class="art-num">Artículo 1.</span> Objeto</h3>
+      <p>La presente Política de Tratamiento de Datos Personales (en adelante, la "Política") tiene por objeto establecer los criterios, lineamientos, principios, procedimientos y medidas adoptadas por <strong>IPS MASMEDICOS IOS S.A.S</strong>, identificada con NIT 901.154.336-9, para garantizar la protección del derecho fundamental al hábeas data de los titulares de la información, de conformidad con la Constitución Política de Colombia, la Ley 1581 de 2012, el Decreto Único Reglamentario 1074 de 2015, las normas especiales aplicables al sector salud y las demás disposiciones que regulen la materia.</p>
+      <p>En desarrollo de la presente Política<strong>, IPS MASMEDICOS IOS S.A.S</strong> establecerá los mecanismos necesarios para asegurar que el tratamiento de los datos personales se realice de manera lícita, leal, transparente, segura y confidencial, garantizando el respeto de los derechos de los titulares y el cumplimiento de los deberes que corresponden al Responsable del Tratamiento.</p>
+      <p>La presente Política regula todas las operaciones que constituyen tratamiento de datos personales, incluyendo su recolección, almacenamiento, organización, uso, circulación, consulta, actualización, rectificación, transmisión, transferencia, conservación, supresión y cualquier otra operación realizada sobre información personal en desarrollo de las actividades propias de la sociedad.</p>
+      <p>De manera especial, <strong>IPS MASMEDICOS IOS S.A.S</strong> adoptará medidas reforzadas para la protección de los datos personales sensibles relacionados con la salud de los pacientes, garantizando la reserva legal de la historia clínica, la confidencialidad de la información asistencial y la implementación de controles técnicos, administrativos y organizacionales acordes con la naturaleza de la información tratada.</p>
+      <h3 id="articulo-2"><span class="art-num">Artículo 2.</span> Alcance</h3>
+      <p>La presente Política será aplicable a todos los tratamientos de datos personales realizados por <strong>IPS MASMEDICOS IOS S.A.S</strong>, independientemente del medio físico o electrónico utilizado para su recolección, almacenamiento, administración, consulta, circulación o conservación.</p>
+      <p>Las disposiciones aquí contenidas serán de obligatorio cumplimiento para los administradores, representantes legales, directivos, trabajadores, profesionales de la salud, personal asistencial, personal administrativo, contratistas, proveedores, aliados estratégicos, encargados del tratamiento y cualquier persona natural o jurídica que, por razón de una relación legal, contractual o comercial con <strong>IPS MASMEDICOS IOS S.A.S</strong>, trate datos personales respecto de los cuales la sociedad actúe como Responsable del Tratamiento.</p>
+      <p>La presente Política será igualmente aplicable a todas las bases de datos, archivos, sistemas de información, plataformas tecnológicas, historias clínicas, historias clínicas electrónicas, registros administrativos, financieros, comerciales, laborales y demás repositorios de información administrados por <strong>IPS MASMEDICOS IOS S.A.S</strong>, sin perjuicio de la aplicación de las normas especiales que regulan la historia clínica y la información sometida a reserva legal.</p>
+      <h3 id="articulo-3"><span class="art-num">Artículo 3.</span> Ámbito de Aplicación</h3>
+      <p>La presente Política regula el tratamiento de los datos personales correspondientes a las personas naturales que mantengan o hayan mantenido cualquier tipo de relación con <strong>IPS MASMEDICOS IOS S.A.S</strong>, incluyendo, entre otros:</p>
+      <p class="item"><strong>a.</strong> Pacientes.</p>
+      <p class="item"><strong>b.</strong> Usuarios de los servicios de salud.</p>
+      <p class="item"><strong>c.</strong> Usuarios de servicios de telemedicina.</p>
+      <p class="item"><strong>d.</strong> Acudientes.</p>
+      <p class="item"><strong>e.</strong> Representantes legales.</p>
+      <p class="item"><strong>f.</strong> Familiares autorizados.</p>
+      <p class="item"><strong>g.</strong> Trabajadores.</p>
+      <p class="item"><strong>h.</strong> Aspirantes a procesos de selección.</p>
+      <p class="item"><strong>i.</strong> Practicantes y aprendices.</p>
+      <p class="item"><strong>j.</strong> Contratistas.</p>
+      <p class="item"><strong>k.</strong> Médicos.</p>
+      <p class="item"><strong>l.</strong> Especialistas.</p>
+      <p class="item"><strong>m.</strong> Personal asistencial.</p>
+      <p class="item"><strong>n.</strong> Proveedores.</p>
+      <p class="item"><strong>o.</strong> Clientes institucionales.</p>
+      <p class="item"><strong>p.</strong> Entidades Promotoras de Salud (EPS).</p>
+      <p class="item"><strong>q.</strong> Administradoras de Riesgos Laborales (ARL).</p>
+      <p class="item"><strong>r.</strong> Compañías aseguradoras.</p>
+      <p class="item"><strong>s.</strong> Entidades públicas y autoridades competentes.</p>
+      <p class="item"><strong>t.</strong> Visitantes.</p>
+      <p class="item"><strong>u.</strong> Usuarios del sitio web institucional y de las plataformas digitales.</p>
+      <p class="item"><strong>v.</strong> Cualquier otra persona natural cuyos datos personales sean objeto de tratamiento por parte de <strong>IPS MASMEDICOS IOS S.A.S</strong>, de conformidad con la ley.</p>
+      <p>El tratamiento comprenderá los datos recolectados mediante atención presencial, plataformas tecnológicas, aplicaciones, portales web, correo electrónico, líneas telefónicas, servicios de telemedicina, formularios físicos o electrónicos, sistemas de videovigilancia, contratos, registros clínicos, sistemas administrativos y cualquier otro canal autorizado por la institución.</p>
+      <h3 id="articulo-4"><span class="art-num">Artículo 4.</span> Identificación del Responsable del Tratamiento</h3>
+      <p>Para todos los efectos previstos en la presente Política y en la legislación colombiana sobre protección de datos personales, el Responsable del Tratamiento es:</p>
+      <p class="def"><strong>Razón social:</strong> IPS MASMEDICOS IOS S.A.S.</p>
+      <p class="def"><strong>NIT:</strong> 901.154.336-9</p>
+      <p class="def"><strong>Domicilio principal:</strong> Medellín, Antioquia.</p>
+      <p class="def"><strong>Dirección:</strong> Carrera 64 A No. 78-581.</p>
+      <p class="def"><strong>Correo electrónico para la atención de asuntos relacionados con protección de datos personales:</strong> <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+      <p class="def"><strong>Teléfono de contacto:</strong> <a href="tel:+573012519764">+57 301 251 9764</a></p>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> actuará como Responsable del Tratamiento respecto de las bases de datos personales que administre directamente o a través de terceros que actúen como Encargados del Tratamiento, adoptando las medidas jurídicas, técnicas, administrativas y organizacionales necesarias para garantizar la protección de la información y el cumplimiento del régimen colombiano de protección de datos personales.</p>
+      <p>La sociedad podrá designar un área, dependencia o responsable interno para la atención de consultas, reclamos y demás solicitudes relacionadas con el ejercicio del derecho de hábeas data, sin que ello implique la transferencia de las obligaciones legales que le corresponden como Responsable del Tratamiento.</p>
     </section>
 
-    <section id="marco">
-      <h2>2. MARCO NORMATIVO</h2>
-      <p>Esta política se adopta conforme a:</p>
-      <ul>
-        <li>La Constitución Política de Colombia, artículos 15 y 20.</li>
-        <li>La Ley Estatutaria 1581 de 2012, Decreto 1377 de 2013 y demás normas complementarias.</li>
-        <li>El Decreto 1751 de 2015 (Sistema General de Seguridad Social en Salud).</li>
-        <li>La normativa estadounidense HIPAA – Health Insurance Portability and Accountability Act, en lo relativo a protección de datos de salud (PHI) cuando existan operaciones o tratamiento en territorio de los EE. UU.</li>
-        <li>Las políticas y lineamientos de Google Play para el tratamiento de datos y uso de permisos sensibles.</li>
-      </ul>
-      <p><strong>IPS MASMEDICOS IOS SAS.</strong> garantiza que el tratamiento se realizará de manera segura, confidencial, lícita y transparente.</p>
+    <section class="chapter" id="capitulo-ii">
+      <h2><span class="chapter-num">CAPÍTULO II</span>MARCO JURÍDICO Y PRINCIPIOS</h2>
+      <h3 id="articulo-5"><span class="art-num">Artículo 5.</span> Marco Jurídico</h3>
+      <p>La presente Política de Tratamiento de Datos Personales se adopta en cumplimiento del régimen colombiano de protección de datos personales y de la normativa especial aplicable al sector salud, constituyendo el marco interno que orienta el tratamiento de la información personal por parte de <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <p>La interpretación y aplicación de esta Política se realizará de manera armónica con las disposiciones constitucionales, legales y reglamentarias vigentes, especialmente las siguientes:</p>
+      <p class="item"><strong>a.</strong> Constitución Política de Colombia, en particular los artículos 15, 20, 48, 49 y 74.</p>
+      <p class="item"><strong>b.</strong> Ley 23 de 1981, por la cual se dictan normas en materia de ética médica.</p>
+      <p class="item"><strong>c.</strong> Ley 100 de 1993 y las normas que regulan el Sistema General de Seguridad Social en Salud.</p>
+      <p class="item"><strong>d.</strong> Ley 527 de 1999, sobre mensajes de datos, comercio electrónico y firmas digitales.</p>
+      <p class="item"><strong>e.</strong> Ley 594 de 2000 - Ley General de Archivos.</p>
+      <p class="item"><strong>f.</strong> Ley 1266 de 2008, cuando resulte aplicable.</p>
+      <p class="item"><strong>g.</strong> Ley 1438 de 2011 y las demás disposiciones que regulan la prestación de los servicios de salud.</p>
+      <p class="item"><strong>h</strong>. Ley 1581 de 2012, por la cual se dictan disposiciones generales para la protección de datos personales.</p>
+      <p class="item"><strong>i.</strong> Decreto Único Reglamentario 1074 de 2015 y las normas que lo modifiquen, adicionen o sustituyan.</p>
+      <p class="item"><strong>j.</strong> Decreto Único Reglamentario 780 de 2016 del Sector Salud y Protección Social.</p>
+      <p class="item"><strong>k.</strong> Resolución 1995 de 1999 y las demás normas que regulan la historia clínica y su reserva legal.</p>
+      <p class="item"><strong>l.</strong> Ley 2015 de 2020, por medio de la cual se crea la Historia Clínica Electrónica Interoperable.</p>
+      <p class="item"><strong>m.</strong> Circular Única de la Superintendencia de Industria y Comercio, en lo relacionado con la protección de datos personales.</p>
+      <p class="item"><strong>n.</strong> La jurisprudencia de la Corte Constitucional, del Consejo de Estado y los lineamientos expedidos por la Superintendencia de Industria y Comercio sobre el derecho fundamental de hábeas data.</p>
+      <p class="item"><strong>o.</strong> La <em>Health Insurance Portability and Accountability Act</em> (HIPAA) de los Estados Unidos de América, en lo relativo a la protección de datos de salud (PHI), cuando existan operaciones o tratamiento de información en dicho territorio.</p>
+      <p class="item"><strong>p.</strong> Las políticas y lineamientos de Google Play para el tratamiento de datos de usuarios y el uso de permisos sensibles, respecto del aplicativo ConMisMédicos.</p>
+      <p class="item"><strong>q.</strong> Las demás normas nacionales e internacionales que resulten aplicables al tratamiento de datos personales y a la prestación de servicios de salud.</p>
+      <p>La modificación, derogatoria o sustitución de cualquiera de las normas anteriormente citadas se entenderá incorporada a la presente Política desde la entrada en vigor de la nueva disposición, sin perjuicio de la actualización formal del presente documento cuando resulte necesaria.</p>
+      <h3 id="articulo-6"><span class="art-num">Artículo 6.</span> Definiciones</h3>
+      <p>Para efectos de la presente Política, además de las definiciones previstas en la Ley 1581 de 2012 y el Decreto 1074 de 2015, se adoptan las siguientes:</p>
+      <p class="def"><strong>Autorización:</strong> Consentimiento previo, expreso e informado otorgado por el titular para llevar a cabo el tratamiento de sus datos personales.</p>
+      <p class="def"><strong>Aviso de Privacidad:</strong> Comunicación verbal o escrita mediante la cual <strong>IPS MASMEDICOS IOS S.A.S</strong> informa al titular la existencia de la presente Política, las finalidades del tratamiento y la forma de ejercer sus derechos.</p>
+      <p class="def"><strong>Base de datos:</strong> Conjunto organizado de datos personales objeto de tratamiento.</p>
+      <p class="def"><strong>Dato personal:</strong> Cualquier información vinculada o que pueda asociarse a una persona natural determinada o determinable.</p>
+      <p class="def"><strong>Dato público:</strong> Dato calificado como tal por la Constitución Política o la ley, o aquel que no sea semiprivado, privado o sensible.</p>
+      <p class="def"><strong>Dato semiprivado:</strong> Dato que no tiene naturaleza íntima, reservada ni pública y cuyo conocimiento puede interesar a determinado sector o grupo de personas.</p>
+      <p class="def"><strong>Dato privado:</strong> Información que por su naturaleza íntima o reservada sólo es relevante para su titular.</p>
+      <p class="def"><strong>Dato sensible:</strong> Información que afecta la intimidad del titular o cuyo uso indebido puede generar discriminación, incluyendo, entre otros, los datos relativos al estado de salud, datos biométricos, origen racial o étnico, orientación política, convicciones religiosas o filosóficas, pertenencia a organizaciones sindicales o sociales, datos genéticos y datos relativos a la vida sexual.</p>
+      <p class="def"><strong>Datos relativos a la salud:</strong> Toda información concerniente al estado físico, mental, psicológico o social de una persona, incluyendo antecedentes médicos, diagnósticos, tratamientos, incapacidades, exámenes, procedimientos, medicamentos, resultados clínicos y cualquier otra información relacionada con la atención en salud.</p>
+      <p class="def"><strong>Dato de salud / PHI (HIPAA):</strong> Información de Salud Protegida (<em>Protected Health Information</em>), entendida como toda información relacionada con el estado de salud de una persona generada en un servicio de atención médica, en los términos de la normativa estadounidense HIPAA.</p>
+      <p class="def"><strong>Encargado del Tratamiento:</strong> Persona natural o jurídica, pública o privada, que realiza el tratamiento de datos personales por cuenta del Responsable del Tratamiento.</p>
+      <p class="def"><strong>Historia clínica:</strong> Documento privado, obligatorio, sometido a reserva legal, en el que se registra cronológicamente el estado de salud del paciente, los actos médicos y demás procedimientos ejecutados por el equipo de salud.</p>
+      <p class="def"><strong>Historia Clínica Electrónica:</strong> Registro electrónico de la información clínica del paciente administrado conforme a los principios de autenticidad, integridad, disponibilidad, interoperabilidad, confidencialidad y seguridad.</p>
+      <p class="def"><strong>Responsable del Tratamiento:</strong> Persona natural o jurídica que decide sobre la base de datos y/o el tratamiento de los datos personales.</p>
+      <p class="def"><strong>Titular:</strong> Persona natural cuyos datos personales son objeto de tratamiento.</p>
+      <p class="def"><strong>Transferencia:</strong> Envío de datos personales a un tercero que actúa como Responsable del Tratamiento.</p>
+      <p class="def"><strong>Transmisión:</strong> Comunicación de datos personales a un tercero que actúa como Encargado del Tratamiento por cuenta del Responsable.</p>
+      <p class="def"><strong>Tratamiento:</strong> Cualquier operación o conjunto de operaciones realizadas sobre datos personales, tales como recolección, almacenamiento, uso, circulación, consulta, actualización, conservación, transmisión, transferencia, bloqueo, supresión o destrucción.</p>
+      <p class="def"><strong>Telemedicina:</strong> Modalidad de prestación de servicios de salud soportada mediante tecnologías de la información y las comunicaciones, conforme a la regulación vigente.</p>
+      <p class="def"><strong>Violación de datos personales:</strong> Incidente de seguridad que ocasione la destrucción, pérdida, alteración, divulgación no autorizada o acceso indebido a datos personales tratados por <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <h3 id="articulo-7"><span class="art-num">Artículo 7.</span> Principios Rectores del Tratamiento de Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> desarrollará todas las actividades relacionadas con el tratamiento de datos personales observando los principios establecidos en la Constitución Política, la Ley 1581 de 2012, el Decreto 1074 de 2015 y la normativa especial aplicable al sector salud.</p>
+      <p>En consecuencia, el tratamiento de datos personales se sujetará a los siguientes principios:</p>
+      <p class="item"><strong>a. Legalidad:</strong> El tratamiento de datos personales constituye una actividad reglada que deberá sujetarse a las disposiciones constitucionales, legales y reglamentarias aplicables.</p>
+      <p class="item"><strong>b. Finalidad:</strong> El tratamiento obedecerá a finalidades legítimas, específicas, explícitas e informadas al titular.</p>
+      <p class="item"><strong>c. Libertad:</strong> El tratamiento sólo podrá realizarse con el consentimiento previo, expreso e informado del titular o cuando exista autorización legal para ello.</p>
+      <p class="item"><strong>d. Veracidad o calidad:</strong> La información objeto de tratamiento deberá ser veraz, completa, exacta, actualizada, comprobable y comprensible.</p>
+      <p class="item"><strong>e. Transparencia:</strong> Se garantizará al titular el derecho de obtener información sobre la existencia de datos personales que le conciernan y el tratamiento realizado sobre los mismos.</p>
+      <p class="item"><strong>f. Acceso y circulación restringida:</strong> Los datos personales sólo podrán ser tratados por las personas autorizadas y durante el tiempo estrictamente necesario para el cumplimiento de las finalidades del tratamiento.</p>
+      <p class="item"><strong>g. Seguridad:</strong> <strong>IPS MASMEDICOS IOS S.A.S</strong> implementará medidas técnicas, humanas, administrativas, físicas y organizacionales orientadas a proteger los datos personales frente a riesgos de pérdida, alteración, acceso, uso o divulgación no autorizada.</p>
+      <p class="item"><strong>h. Confidencialidad:</strong> Todas las personas que intervengan en el tratamiento de datos personales estarán obligadas a garantizar la reserva de la información, incluso después de finalizada su relación con la IPS.</p>
+      <p class="item"><strong>i. Responsabilidad demostrada (Accountability):</strong> <strong>IPS MASMEDICOS IOS S.A.S</strong> adoptará políticas, procedimientos, controles, registros y mecanismos de seguimiento que permitan demostrar el cumplimiento efectivo del régimen de protección de datos personales.</p>
+      <p class="item"><strong>j. Privacidad desde el diseño y por defecto:</strong> La protección de los datos personales será incorporada desde la concepción, diseño, implementación y operación de los procesos, servicios y tecnologías utilizadas por la IPS, garantizando que, por defecto, únicamente se traten los datos estrictamente necesarios para cada finalidad.</p>
+      <p class="item"><strong>k. Necesidad y proporcionalidad:</strong> Únicamente serán recolectados y tratados los datos personales que resulten adecuados, pertinentes y estrictamente necesarios para el cumplimiento de las finalidades informadas al titular y de las obligaciones legales de la IPS.</p>
+      <p class="item"><strong>l. Reserva de la información en salud:</strong> Los datos personales relacionados con la salud y la historia clínica estarán sometidos a un régimen reforzado de confidencialidad, acceso restringido y protección especial, conforme a la legislación vigente.</p>
     </section>
 
-    <section id="definiciones">
-      <h2>3. DEFINICIONES</h2>
-      <p>Para efectos de esta política se aplican las siguientes definiciones:</p>
-      <ul>
-        <li><strong>Dato Personal:</strong> Toda información que permita identificar o asociar a una persona natural.</li>
-        <li><strong>Dato Sensible:</strong> Información que afecta la intimidad del titular, como datos relacionados con salud, historia clínica, diagnósticos, exámenes y datos biométricos.</li>
-        <li><strong>Dato de Salud / PHI (HIPAA):</strong> Toda información relacionada con el estado de salud de una persona, generada en un servicio de atención médica.</li>
-        <li><strong>Tratamiento:</strong> Cualquier operación sobre datos personales (recolección, almacenamiento, uso, transmisión, supresión, etc.).</li>
-        <li><strong>Autorización:</strong> Consentimiento previo, expreso e informado del titular para el tratamiento de sus datos.</li>
-      </ul>
+    <section class="chapter" id="capitulo-iii">
+      <h2><span class="chapter-num">CAPÍTULO III</span>DATOS PERSONALES OBJETO DE TRATAMIENTO</h2>
+      <h3 id="articulo-8"><span class="art-num">Artículo 8.</span> Categorías de Datos Personales Tratados</h3>
+      <p>En desarrollo de su objeto social y de las finalidades previstas en la presente Política, <strong>IPS MASMEDICOS IOS S.A.S</strong> podrá recolectar, almacenar, organizar, usar, consultar, actualizar, rectificar, transmitir, transferir, conservar, suprimir y, en general, realizar cualquier operación autorizada por la legislación colombiana sobre las siguientes categorías de datos personales:</p>
+      <p class="item"><strong>a.</strong> Datos de identificación.</p>
+      <p class="item"><strong>b.</strong> Datos de contacto.</p>
+      <p class="item"><strong>c.</strong> Datos demográficos.</p>
+      <p class="item"><strong>d.</strong> Datos socioeconómicos.</p>
+      <p class="item"><strong>e.</strong> Datos laborales y ocupacionales.</p>
+      <p class="item"><strong>f.</strong> Datos académicos y profesionales.</p>
+      <p class="item"><strong>g.</strong> Datos financieros, contables y tributarios, cuando resulte procedente.</p>
+      <p class="item"><strong>h.</strong> Datos contractuales.</p>
+      <p class="item"><strong>i.</strong> Datos administrativos.</p>
+      <p class="item"><strong>j.</strong> Datos de localización.</p>
+      <p class="item"><strong>k.</strong> Datos tecnológicos y de navegación.</p>
+      <p class="item"><strong>l.</strong> Datos biométricos.</p>
+      <p class="item"><strong>m.</strong> Datos personales sensibles.</p>
+      <p class="item"><strong>n.</strong> Datos relativos a la salud.</p>
+      <p class="item"><strong>o.</strong> Datos contenidos en la historia clínica.</p>
+      <p class="item"><strong>p.</strong> Imágenes y registros captados mediante sistemas de videovigilancia.</p>
+      <p class="item"><strong>q.</strong> Cualquier otra información personal cuyo tratamiento resulte necesario para el cumplimiento de obligaciones legales, contractuales o asistenciales de la <strong>IPS</strong>.</p>
+      <p>La recolección de datos personales se limitará a aquella información adecuada, pertinente y estrictamente necesaria para el cumplimiento de las finalidades informadas al titular y de las obligaciones legales que correspondan a <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <h3 id="articulo-9"><span class="art-num">Artículo 9.</span> Tratamiento de Datos Personales Sensibles</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> reconoce que los datos personales sensibles gozan de especial protección constitucional y legal, razón por la cual su tratamiento se realizará observando las garantías previstas en la Ley 1581 de 2012 y demás normas concordantes.</p>
+      <p>Se consideran datos sensibles aquellos que afectan la intimidad del titular o cuyo uso indebido pueda generar discriminación, tales como los relacionados con el estado de salud, datos biométricos, origen racial o étnico, orientación política, convicciones religiosas o filosóficas, pertenencia a organizaciones sindicales o sociales, datos genéticos y demás información catalogada como sensible por la legislación vigente.</p>
+      <p>El tratamiento de datos sensibles únicamente se realizará cuando:</p>
+      <p class="item"><strong>a.</strong> El titular haya otorgado autorización explícita, salvo las excepciones previstas por la ley.</p>
+      <p class="item"><strong>b.</strong> El tratamiento sea necesario para salvaguardar el interés vital del titular y éste se encuentre física o jurídicamente incapacitado.</p>
+      <p class="item"><strong>c.</strong> El tratamiento sea necesario para el reconocimiento, ejercicio o defensa de un derecho en un proceso judicial.</p>
+      <p class="item"><strong>d.</strong> El tratamiento tenga una finalidad histórica, estadística o científica, adoptando las medidas necesarias para la supresión de la identidad de los titulares cuando ello resulte procedente.</p>
+      <p class="item"><strong>e.</strong> El tratamiento sea necesario para la adecuada prestación de los servicios de salud, la gestión del riesgo en salud o el cumplimiento de obligaciones legales propias de <strong>IPS MASMEDICOS IOS S.A.S</strong>, de conformidad con la normativa vigente.</p>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> informará al titular que el suministro de datos sensibles es facultativo, salvo en aquellos eventos en que su tratamiento sea indispensable para la prestación de los servicios de salud o exista una obligación legal que lo autorice.</p>
+      <h3 id="articulo-10"><span class="art-num">Artículo 10.</span> Tratamiento de Datos Relativos a la Salud</h3>
+      <p>Los datos relacionados con la salud constituyen datos personales sensibles y serán tratados por <strong>IPS MASMEDICOS IOS S.A.S</strong> exclusivamente para el cumplimiento de las finalidades asistenciales, administrativas, científicas, epidemiológicas, legales y contractuales autorizadas por el ordenamiento jurídico.</p>
+      <p>La <strong>IPS</strong> podrá tratar, entre otros, los siguientes datos:</p>
+      <p class="item"><strong>a.</strong> Antecedentes personales y familiares.</p>
+      <p class="item"><strong>b.</strong> Motivo de consulta.</p>
+      <p class="item"><strong>c.</strong> Diagnósticos médicos.</p>
+      <p class="item"><strong>d.</strong> Evolución clínica.</p>
+      <p class="item"><strong>e.</strong> Procedimientos e intervenciones.</p>
+      <p class="item"><strong>f.</strong> Resultados de laboratorio y ayudas diagnósticas.</p>
+      <p class="item"><strong>g.</strong> Fórmulas médicas.</p>
+      <p class="item"><strong>h.</strong> Incapacidades.</p>
+      <p class="item"><strong>i.</strong> Remisiones y contrarreferencias.</p>
+      <p class="item"><strong>j.</strong> Consentimientos informados.</p>
+      <p class="item"><strong>k.</strong> Información farmacológica.</p>
+      <p class="item"><strong>l.</strong> Registros clínicos físicos o electrónicos.</p>
+      <p class="item"><strong>m.</strong> Cualquier otra información necesaria para garantizar una atención integral en salud.</p>
+      <p>El tratamiento de esta información se efectuará bajo estrictos criterios de confidencialidad, acceso restringido, necesidad, proporcionalidad y reserva legal, garantizando que únicamente pueda ser conocida por las personas autorizadas conforme a la Constitución Política, la ley y la regulación especial del sector salud.</p>
+      <h3 id="articulo-11"><span class="art-num">Artículo 11.</span> Historia Clínica y Reserva Legal</h3>
+      <p>La historia clínica constituye un documento privado, obligatorio y sometido a reserva legal, cuya administración se realizará de conformidad con la normativa vigente.</p>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> garantizará que la creación, administración, conservación, consulta, archivo, reproducción, interoperabilidad y disposición de la historia clínica se efectúe bajo condiciones de autenticidad, integridad, disponibilidad, confidencialidad, trazabilidad y seguridad de la información.</p>
+      <p>El acceso a la historia clínica estará restringido al paciente, al equipo de salud directamente involucrado en su atención, a las autoridades competentes y a las demás personas expresamente autorizadas por la ley.</p>
+      <p>La <strong>IPS</strong> implementará mecanismos de autenticación, perfiles de acceso, registros de auditoría y controles tecnológicos que permitan identificar y monitorear el acceso a la información clínica, previniendo consultas, modificaciones o divulgaciones no autorizadas.</p>
+      <h3 id="articulo-12"><span class="art-num">Artículo 12.</span> Tratamiento de Datos Personales de Niños, Niñas y Adolescentes</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> realizará el tratamiento de los datos personales de niños, niñas y adolescentes observando el interés superior del menor y garantizando el respeto de sus derechos fundamentales.</p>
+      <p>La recolección y utilización de esta información se limitará a los datos estrictamente necesarios para la prestación de los servicios de salud, el cumplimiento de obligaciones legales y el desarrollo de las finalidades previstas en la presente Política.</p>
+      <p>Cuando sea exigible, la autorización para el tratamiento será otorgada por el representante legal del menor, sin perjuicio del derecho del niño, niña o adolescente a ser escuchado, de acuerdo con su grado de madurez, autonomía y capacidad de comprensión, conforme a la legislación vigente.</p>
+      <h3 id="articulo-13"><span class="art-num">Artículo 13.</span> Tratamiento de Datos Biométricos</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> podrá tratar datos biométricos, tales como huellas dactilares, firma biométrica, reconocimiento facial, fotografías u otros mecanismos de autenticación, cuando ello resulte necesario para la identificación del titular, el control de acceso a las instalaciones, la seguridad de la información, la prestación de los servicios de salud o el cumplimiento de obligaciones legales.</p>
+      <p>Los datos biométricos serán considerados datos personales sensibles y estarán sujetos a medidas reforzadas de seguridad, confidencialidad y acceso restringido.</p>
+      <p>Su tratamiento se limitará a las finalidades previamente informadas al titular o a aquellas autorizadas expresamente por la ley, adoptando controles técnicos y organizacionales destinados a prevenir el acceso, uso, modificación o divulgación no autorizada de esta información.</p>
     </section>
 
-    <section id="responsable" class="metadata">
-      <h2>4. RESPONSABLE DEL TRATAMIENTO</h2>
-      <p><strong>Razón social:</strong> IPS Masmedicos IOS SAS.</p>
-      <p><strong>Aplicativo:</strong> ConMisMédicos</p>
-      <p><strong>Domicilio:</strong> Carrera 64 a n 78-581, Medellín, Colombia</p>
-      <p><strong>Correo de contacto:</strong> <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
-      <p><strong>Teléfono:</strong> <a href="tel:+573012519764">+57 301 251 9764</a></p>
-      <p>IPS MASMEDICOS IOS SAS. podrá delegar el tratamiento a Encargados que cumplan estándares equivalentes de seguridad y confidencialidad, incluyendo proveedores ubicados en Colombia, Estados Unidos u otros países.</p>
+    <section class="chapter" id="capitulo-iv">
+      <h2><span class="chapter-num">CAPÍTULO IV</span>DERECHOS DE LOS TITULARES Y DEBERES DEL RESPOSABLE Y DE LOS ENCARGADOS DEL TRATAMIENTO</h2>
+      <h3 id="articulo-14"><span class="art-num">Artículo 14.</span> Derechos de los Titulares</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> garantiza a los titulares de los datos personales el ejercicio pleno y efectivo del derecho fundamental de hábeas data, de conformidad con la Constitución Política, la Ley 1581 de 2012 y las demás disposiciones que regulan la materia.</p>
+      <p>En consecuencia, los titulares tendrán los siguientes derechos:</p>
+      <p class="item"><strong>a.</strong> Conocer, acceder, consultar y obtener información sobre los datos personales que sean objeto de tratamiento por parte de <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <p class="item"><strong>b.</strong> Solicitar la actualización de los datos personales cuando estos se encuentren desactualizados.</p>
+      <p class="item"><strong>c.</strong> Solicitar la rectificación de los datos personales cuando sean inexactos, incompletos, fraccionados o induzcan a error.</p>
+      <p class="item"><strong>d.</strong> Solicitar la supresión de los datos personales cuando resulte procedente de conformidad con la legislación vigente y no exista un deber legal o contractual que impida su eliminación.</p>
+      <p class="item"><strong>e.</strong> Revocar la autorización otorgada para el tratamiento de sus datos personales, cuando ello sea legalmente procedente.</p>
+      <p class="item"><strong>f.</strong> Solicitar prueba de la autorización otorgada para el tratamiento de sus datos personales, salvo en los casos en que la ley exima dicho requisito.</p>
+      <p class="item"><strong>g.</strong> Ser informado, previa solicitud, respecto del uso que <strong>IPS MASMEDICOS IOS S.A.S</strong> haya dado a sus datos personales.</p>
+      <p class="item"><strong>h.</strong> Presentar consultas y reclamos relacionados con el tratamiento de sus datos personales.</p>
+      <p class="item"><strong>i.</strong> Acudir ante la Superintendencia de Industria y Comercio, una vez agotado el trámite de consulta o reclamo ante <strong>IPS MASMEDICOS IOS S.A.S</strong>, cuando considere vulnerados sus derechos en materia de protección de datos personales.</p>
+      <p class="item"><strong>j.</strong> Ejercer gratuitamente sus derechos, en los términos previstos por la ley.</p>
+      <p class="item"><strong>k.</strong> Ejercer los demás derechos reconocidos por la Constitución Política, la Ley 1581 de 2012 y las demás normas que regulen la protección de datos personales.</p>
+      <p><strong>Parágrafo.</strong> El ejercicio de los derechos relacionados con la historia clínica y demás información sometida a reserva legal se sujetará a las disposiciones especiales que regulan el acceso, custodia, conservación y confidencialidad de dicha información.</p>
+      <h3 id="articulo-15"><span class="art-num">Artículo 15.</span> Personas Legitimadas para Ejercer los Derechos del Titular</h3>
+      <p>Los derechos previstos en la presente Política podrán ser ejercidos por:</p>
+      <p class="item"><strong>a.</strong> El titular de los datos personales.</p>
+      <p class="item"><strong>b.</strong> Los causahabientes del titular, quienes deberán acreditar tal calidad.</p>
+      <p class="item"><strong>c.</strong> El representante legal del titular, cuando este sea menor de edad o se encuentre legalmente incapacitado.</p>
+      <p class="item"><strong>d.</strong> El apoderado del titular, debidamente facultado mediante poder otorgado conforme a la ley.</p>
+      <p class="item"><strong>e.</strong> Las personas autorizadas expresamente por el titular.</p>
+      <p class="item"><strong>f.</strong> Las demás personas legitimadas en los casos previstos por la legislación colombiana.</p>
+      <p>Cuando las solicitudes versen sobre información clínica o datos sometidos a reserva legal, <strong>IPS MASMEDICOS IOS S.A.S</strong> verificará previamente la legitimación del solicitante y el cumplimiento de los requisitos establecidos en la normatividad vigente antes de suministrar cualquier información.</p>
+      <h3 id="articulo-16"><span class="art-num">Artículo 16.</span> Deberes de IPS MASMEDICOS IOS S.A.S. como Responsable del Tratamiento</h3>
+      <p>En su calidad de Responsable del Tratamiento, <strong>IPS MASMEDICOS IOS S.A.S</strong> se compromete a:</p>
+      <p class="item"><strong>a.</strong> Garantizar al titular el ejercicio pleno y efectivo del derecho de hábeas data.</p>
+      <p class="item"><strong>b.</strong> Solicitar y conservar, cuando sea legalmente exigible, la autorización otorgada por el titular para el tratamiento de sus datos personales.</p>
+      <p class="item"><strong>c.</strong> Informar al titular, de manera clara, suficiente y previa, la finalidad de la recolección y los derechos que le asisten.</p>
+      <p class="item"><strong>d.</strong> Conservar la información bajo las condiciones de seguridad necesarias para impedir su adulteración, pérdida, consulta, uso, acceso o divulgación no autorizados o fraudulentos.</p>
+      <p class="item"><strong>e.</strong> Garantizar la confidencialidad y reserva de la información durante todo su ciclo de vida.</p>
+      <p class="item"><strong>f.</strong> Actualizar la información cuando sea necesario.</p>
+      <p class="item"><strong>g.</strong> Rectificar la información cuando sea incorrecta.</p>
+      <p class="item"><strong>h.</strong> Tramitar oportunamente las consultas y reclamos presentados por los titulares.</p>
+      <p class="item"><strong>i.</strong> Adoptar e implementar medidas técnicas, humanas, administrativas, físicas y organizacionales para la protección de los datos personales.</p>
+      <p class="item"><strong>j.</strong> Implementar programas permanentes de capacitación en protección de datos personales para el talento humano.</p>
+      <p class="item"><strong>k.</strong> Exigir compromisos de confidencialidad al personal, contratistas, proveedores y demás terceros que accedan a datos personales.</p>
+      <p class="item"><strong>l.</strong> Implementar controles de acceso físico y lógico a las bases de datos y sistemas de información.</p>
+      <p class="item"><strong>m.</strong> Mantener registros y trazabilidad sobre los accesos a la información cuando ello resulte técnica y legalmente procedente.</p>
+      <p class="item"><strong>n.</strong> Gestionar y documentar los incidentes de seguridad que comprometan datos personales.</p>
+      <p class="item"><strong>o.</strong> Supervisar el cumplimiento de las obligaciones asumidas por los encargados del tratamiento.</p>
+      <p class="item"><strong>p.</strong> Dar cumplimiento a las instrucciones impartidas por la Superintendencia de Industria y Comercio y demás autoridades competentes.</p>
+      <p class="item"><strong>q.</strong> Cumplir los demás deberes previstos en la legislación colombiana sobre protección de datos personales.</p>
+      <p><strong>Parágrafo.</strong> Tratándose de datos personales sensibles y de información relacionada con la salud, <strong>IPS MASMEDICOS IOS S.A.S</strong> implementará medidas reforzadas de seguridad, confidencialidad y acceso restringido, atendiendo la naturaleza especial de dicha información.</p>
+      <h3 id="articulo-17"><span class="art-num">Artículo 17.</span> Deberes de los Encargados del Tratamiento</h3>
+      <p>Toda persona natural o jurídica que, por cuenta de <strong>IPS MASMEDICOS IOS S.A.S</strong>, realice operaciones de tratamiento de datos personales en calidad de Encargado del Tratamiento deberá:</p>
+      <p class="item"><strong>a.</strong> Garantizar al titular el ejercicio de sus derechos en los términos previstos en la ley.</p>
+      <p class="item"><strong>b.</strong> Tratar los datos personales únicamente conforme a las instrucciones impartidas por <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <p class="item"><strong>c.</strong> Implementar las medidas técnicas, administrativas, físicas y organizacionales necesarias para garantizar la seguridad de la información.</p>
+      <p class="item"><strong>d.</strong> Mantener la confidencialidad de los datos personales tratados, incluso después de finalizada la relación contractual.</p>
+      <p class="item"><strong>e.</strong> Abstenerse de utilizar la información para finalidades distintas de aquellas autorizadas por <strong>IPS MASMEDICOS IOS S.A.S</strong> o previstas en la ley.</p>
+      <p class="item"><strong>f.</strong> Actualizar, rectificar o suprimir la información cuando ello sea ordenado por el Responsable del Tratamiento o cuando resulte procedente conforme a la legislación vigente.</p>
+      <p class="item"><strong>g.</strong> Informar oportunamente a <strong>IPS MASMEDICOS IOS S.A.S</strong> cualquier incidente de seguridad, vulneración, acceso no autorizado o riesgo que comprometa la integridad, disponibilidad o confidencialidad de los datos personales.</p>
+      <p class="item"><strong>h.</strong> Permitir las actividades de seguimiento, auditoría y verificación que adelante <strong>IPS</strong> <strong>MASMEDICOS IOS S.A.S</strong> para comprobar el cumplimiento de las obligaciones contractuales y legales en materia de protección de datos personales.</p>
+      <p class="item"><strong>i.</strong> Cumplir las obligaciones previstas en la Ley 1581 de 2012, el Decreto 1074 de 2015, las demás normas aplicables y los acuerdos de transmisión de datos personales suscritos con <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <p><strong>Parágrafo.</strong> Cuando el Encargado del Tratamiento tenga acceso a datos personales sensibles o a información contenida en historias clínicas, deberá implementar controles reforzados de seguridad y confidencialidad, garantizando el acceso únicamente al personal estrictamente autorizado y para el cumplimiento de las finalidades previamente definidas.</p>
     </section>
 
-    <section id="finalidades">
-      <h2>5. TRATAMIENTO Y FINALIDADES DE LA INFORMACIÓN</h2>
-      <p>IPS MASMEDICOS IOS SAS. recolecta y trata datos personales para las siguientes finalidades:</p>
-
-      <h3>5.1 Finalidades asistenciales y clínicas</h3>
-      <ul>
-        <li>Prestación de servicios de telemedicina y atención médica remota mediante ConMisMédicos.</li>
-        <li>Acceso, registro y actualización de información clínica relevante.</li>
-        <li>Generación de historias clínicas digitales, evoluciones, diagnósticos y recomendaciones.</li>
-        <li>Comunicación directa entre pacientes y profesionales de salud.</li>
-        <li>Programación de citas, recordatorios y seguimiento médico.</li>
-      </ul>
-
-      <h3>5.2 Finalidades administrativas y operativas</h3>
-      <ul>
-        <li>Creación y gestión de cuentas de usuario.</li>
-        <li>Autenticación segura, validación de identidad y prevención de fraude.</li>
-        <li>Facturación, soporte, auditoría y procesos administrativos vinculados al servicio.</li>
-        <li>Gestión de peticiones, quejas y reclamos (PQR).</li>
-      </ul>
-
-      <h3>5.3 Finalidades legales y regulatorias</h3>
-      <ul>
-        <li>Cumplimiento de obligaciones derivadas de la normativa de salud en Colombia.</li>
-        <li>Conservación de la historia clínica según disposiciones legales.</li>
-        <li>Atender requerimientos de autoridades competentes.</li>
-      </ul>
-
-      <h3>5.4 Finalidades tecnológicas</h3>
-      <ul>
-        <li>Optimización y mejora continua del aplicativo ConMisMédicos.</li>
-        <li>Análisis de desempeño, métricas de uso y seguridad informática.</li>
-        <li>Monitoreo de accesos y detección de actividades irregulares.</li>
-      </ul>
-
-      <p><strong>Prohibiciones expresas</strong></p>
-      <p>IPS MASMEDICOS IOS SAS. NO utilizará datos personales o sensibles para:</p>
-      <ul>
-        <li>Publicidad no autorizada.</li>
-        <li>Venta o cesión de bases de datos.</li>
-        <li>Fines distintos a los previstos en esta Política.</li>
-      </ul>
+    <section class="chapter" id="capitulo-v">
+      <h2><span class="chapter-num">CAPÍTULO V</span>AUTORIZACIÓN PARA EL TRATAMIENTO DE DATOS PERSONALES</h2>
+      <h3 id="articulo-18"><span class="art-num">Artículo 18.</span> Autorización del Titular</h3>
+      <p>Sin perjuicio de las excepciones previstas en la ley, <strong>IPS MASMEDICOS IOS S.A.S</strong> solicitará la autorización previa, expresa e informada del titular para el tratamiento de sus datos personales.</p>
+      <p>La autorización deberá obtenerse antes de la recolección de los datos personales y permitirá a <strong>IPS MASMEDICOS IOS S.A.S</strong> realizar las operaciones de tratamiento necesarias para el cumplimiento de las finalidades informadas al titular y previstas en la presente Política.</p>
+      <p>La autorización será solicitada mediante mecanismos que permitan al titular manifestar de manera libre, específica, inequívoca e informada su consentimiento, garantizando que conozca:</p>
+      <p class="item"><strong>a.</strong> La identidad del Responsable del Tratamiento.</p>
+      <p class="item"><strong>b.</strong> Las finalidades específicas para las cuales serán tratados sus datos personales.</p>
+      <p class="item"><strong>c.</strong> El carácter facultativo de la respuesta cuando se trate de datos sensibles o de datos de niños, niñas y adolescentes, salvo las excepciones legales.</p>
+      <p class="item"><strong>d.</strong> Los derechos que le asisten como titular de la información.</p>
+      <p class="item"><strong>e.</strong> Los canales habilitados para ejercer dichos derechos.</p>
+      <p><strong>Parágrafo.</strong> La autorización para el tratamiento de datos personales no implica la renuncia por parte del titular al ejercicio de los derechos que le reconoce la legislación colombiana en materia de protección de datos personales.</p>
+      <h3 id="articulo-19"><span class="art-num">Artículo 19.</span> Formas de Obtener y Acreditar la Autorización</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> podrá obtener la autorización del titular mediante cualquier mecanismo que permita conservar prueba de su otorgamiento y consultar posteriormente su contenido.</p>
+      <p>La autorización podrá constar, entre otros, en:</p>
+      <p class="item"><strong>a.</strong> Documentos físicos suscritos por el titular.</p>
+      <p class="item"><strong>b.</strong> Formularios electrónicos.</p>
+      <p class="item"><strong>c.</strong> Plataformas digitales institucionales.</p>
+      <p class="item"><strong>d.</strong> Mensajes de datos.</p>
+      <p class="item"><strong>e.</strong> Correos electrónicos.</p>
+      <p class="item"><strong>f.</strong> Grabaciones de voz.</p>
+      <p class="item"><strong>g.</strong> Sistemas biométricos habilitados para tal fin.</p>
+      <p class="item"><strong>h.</strong> Consentimientos informados.</p>
+      <p class="item"><strong>i.</strong> Cualquier otro mecanismo tecnológico o documental que permita demostrar de manera razonable la manifestación de voluntad del titular.</p>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> conservará la evidencia correspondiente durante el tiempo que resulte necesario para demostrar el cumplimiento de las obligaciones legales relacionadas con el tratamiento de datos personales.</p>
+      <p>La carga de probar la existencia de la autorización corresponderá a <strong>IPS MASMEDICOS IOS S.A.S</strong>, cuando esta sea legalmente exigible.</p>
+      <h3 id="articulo-20"><span class="art-num">Artículo 20.</span> Casos en los que no se Requiere Autorización</h3>
+      <p>De conformidad con la legislación vigente, <strong>IPS MASMEDICOS IOS S.A.S</strong> podrá realizar el tratamiento de datos personales sin autorización del titular cuando se configure alguna de las siguientes circunstancias:</p>
+      <p class="item"><strong>a.</strong> Cuando la información sea requerida por una entidad pública o autoridad administrativa o judicial en ejercicio de sus funciones legales o por orden judicial.</p>
+      <p class="item"><strong>b.</strong> Cuando se trate de datos de naturaleza pública.</p>
+      <p class="item"><strong>c.</strong> Cuando exista una situación de urgencia médica o sanitaria que haga indispensable el tratamiento de la información para proteger la vida, la salud o la integridad del titular o de terceros.</p>
+      <p class="item"><strong>d.</strong> Cuando el tratamiento sea necesario para la prevención, diagnóstico, tratamiento, rehabilitación o prestación de servicios de salud, de conformidad con la legislación vigente y bajo la responsabilidad de profesionales sujetos al deber legal de secreto profesional.</p>
+      <p class="item"><strong>e.</strong> Cuando el tratamiento responda a fines históricos, estadísticos, científicos o epidemiológicos, siempre que se adopten las medidas necesarias para proteger la identidad de los titulares, cuando ello sea procedente.</p>
+      <p class="item"><strong>f.</strong> En los demás casos expresamente autorizados por la Constitución Política o la ley.</p>
+      <p>La ausencia de autorización no exime a <strong>IPS MASMEDICOS IOS S.A.S</strong> del cumplimiento de los principios, deberes y garantías previstos en el régimen de protección de datos personales.</p>
+      <h3 id="articulo-21"><span class="art-num">Artículo 21.</span> Revocatoria de la Autorización y Supresión de Datos</h3>
+      <p>El titular podrá solicitar en cualquier momento la revocatoria de la autorización otorgada para el tratamiento de sus datos personales o la supresión de estos, mediante los canales establecidos por <strong>IPS MASMEDICOS IOS S.A.S</strong></p>
+      <p>La revocatoria o la supresión procederán cuando no exista un deber legal, contractual, judicial o administrativo que imponga la permanencia de la información en las bases de datos de la <strong>IPS</strong>.</p>
+      <p>La solicitud deberá tramitarse conforme al procedimiento previsto en la presente Política para la atención de reclamos.</p>
+      <p>Cuando la supresión de la información no sea jurídicamente procedente, <strong>IPS MASMEDICOS IOS S.A.S</strong> informará al titular las razones legales que justifican la conservación de los datos personales.</p>
+      <p><strong>Parágrafo.</strong> La revocatoria de la autorización no afectará la licitud del tratamiento realizado con anterioridad a la fecha en que aquella produzca efectos.</p>
+      <h3 id="articulo-22"><span class="art-num">Artículo 22.</span> Autorización para el Tratamiento de Datos Sensibles y de Datos de Niños, Niñas y Adolescentes</h3>
+      <p>El tratamiento de datos personales sensibles por parte de <strong>IPS MASMEDICOS IOS S.A.S</strong> requerirá autorización explícita del titular, salvo las excepciones previstas en la legislación vigente.</p>
+      <p>Al momento de solicitar dicha autorización, la <strong>IPS</strong> informará de manera clara que:</p>
+      <p class="item"><strong>a.</strong> El titular no está obligado a autorizar el tratamiento de datos sensibles, salvo cuando exista un deber legal o el tratamiento resulte indispensable para la prestación de los servicios de salud.</p>
+      <p class="item"><strong>b.</strong> La autorización comprenderá únicamente las finalidades previamente informadas.</p>
+      <p class="item"><strong>c.</strong> Los datos serán tratados bajo medidas reforzadas de seguridad, confidencialidad y acceso restringido.</p>
+      <p>Respecto de los datos personales de niños, niñas y adolescentes, <strong>IPS MASMEDICOS IOS S.A.S</strong> garantizará que su tratamiento responda y respete el interés superior del menor y asegure el ejercicio pleno de sus derechos fundamentales, obteniendo la autorización del representante legal cuando sea requerida por la ley.</p>
+      <p>En todos los casos, la <strong>IPS</strong> adoptará medidas especiales para proteger la privacidad y confidencialidad de la información correspondiente a menores de edad y de los datos personales sensibles sometidos a su custodia.</p>
     </section>
 
-    <section id="datos">
-      <h2>6. DATOS PERSONALES TRATADOS</h2>
-      <p>De acuerdo con la naturaleza del servicio, ConMisMédicos podrá recolectar:</p>
-
-      <h3>6.1 Datos de identificación</h3>
-      <p>Nombre, tipo y número de documento, correo electrónico, teléfono, fecha de nacimiento, dirección, fotografía y datos de contacto.</p>
-
-      <h3>6.2 Datos sensibles (salud)</h3>
-      <p>Historia clínica, diagnósticos, resultados de exámenes, antecedentes, medicamentos, signos vitales, motivos de consulta, documentos médicos.</p>
-
-      <h3>6.3 Datos técnicos y de uso</h3>
-      <p>Dirección IP, tipo de dispositivo, sistema operativo, identificadores únicos, registros de actividad en la aplicación, fallas, tiempos de uso, navegación interna.</p>
-
-      <h3>6.4 Permisos del dispositivo</h3>
-      <p>Cámara (videoconsultas, captura de documentos). Micrófono (teleconsulta por voz). Almacenamiento (cargar/descargar exámenes o soportes médicos). Notificaciones (recordatorios médicos y avisos clínicos).</p>
-      <p>Estos permisos se usan exclusivamente para las funciones asistenciales del servicio.</p>
+    <section class="chapter" id="capitulo-vi">
+      <h2><span class="chapter-num">CAPÍTULO VI</span>FINALIDADES DEL TRATAMIENTO DE DATOS PERSONALES</h2>
+      <h3 id="articulo-23"><span class="art-num">Artículo 23.</span> Finalidades del Tratamiento de Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> realizará el tratamiento de los datos personales de conformidad con los principios, derechos, deberes y demás disposiciones previstas en la presente Política, exclusivamente para el cumplimiento de finalidades legítimas, específicas, explícitas e informadas a los titulares.</p>
+      <p>Las finalidades del tratamiento comprenden las actividades necesarias para el desarrollo del objeto social de la institución, la prestación de los servicios de salud, la ejecución de procesos asistenciales y administrativos, el cumplimiento de obligaciones legales, contractuales y regulatorias, así como la implementación de mecanismos de seguridad de la información, continuidad asistencial, gestión tecnológica, calidad, auditoría y demás actividades inherentes a la prestación integral de los servicios de salud.</p>
+      <p>En consecuencia, <strong>IPS MASMEDICOS IOS S.A.S</strong> tratará los datos personales para las finalidades que a continuación se relacionan:</p>
+      <h4 class="finalidad"><span>1.</span> IDENTIFICACIÓN DE USUARIOS</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Identificar, verificar y validar la identidad de pacientes, acudientes, representantes legales, acompañantes y demás titulares de la información, con el fin de garantizar la correcta prestación de los servicios de salud, la seguridad del paciente, el cumplimiento de obligaciones legales y la adecuada administración de la relación asistencial.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Identificar, autenticar y verificar digitalmente la identidad de pacientes, acudientes, representantes legales, profesionales de la salud y demás usuarios mediante mecanismos tecnológicos de autenticación, validación de identidad y controles de seguridad, para garantizar el acceso seguro a los servicios digitales de salud.</p>
+      <h4 class="finalidad"><span>2.</span> REGISTRO DE USUARIOS</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Registrar, organizar, actualizar y administrar la información administrativa, demográfica y clínica necesaria para la prestación de los servicios de salud, el cumplimiento de obligaciones legales y la adecuada gestión de la atención asistencial.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Registrar usuarios en plataformas tecnológicas, crear y administrar perfiles digitales, gestionar credenciales de acceso, actualizar información administrativa y clínica, así como administrar cuentas de usuario para la prestación de servicios de telemedicina y demás servicios digitales de salud.</p>
+      <h4 class="finalidad"><span>3.</span> AGENDAMIENTO DE CITAS</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Programar, confirmar, reprogramar, cancelar y administrar citas médicas, procedimientos, controles, valoraciones y demás servicios asistenciales, garantizando la adecuada gestión de la agenda institucional y la continuidad en la atención del paciente.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Gestionar el agendamiento, confirmación, modificación, cancelación y seguimiento de consultas virtuales, teleconsultas, teleorientaciones y demás modalidades de atención remota, mediante herramientas tecnológicas seguras.</p>
+      <h4 class="finalidad"><span>4.</span> PRESTACIÓN DE SERVICIOS DE SALUD</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Prestar servicios integrales de promoción, prevención, diagnóstico, tratamiento, rehabilitación, seguimiento clínico y demás actividades asistenciales autorizadas, mediante el tratamiento de los datos personales y datos sensibles estrictamente necesarios para la atención del paciente.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Prestar servicios de teleconsulta, teleorientación, teleapoyo, teleexperticia y demás modalidades de atención remota autorizadas por la legislación vigente, garantizando la confidencialidad, disponibilidad e integridad de la información tratada durante la prestación del servicio.</p>
+      <h4 class="finalidad"><span>5.</span> DIAGNÓSTICO Y TRATAMIENTO</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Evaluar el estado de salud del paciente, establecer diagnósticos, formular tratamientos, emitir conceptos médicos, ordenar ayudas diagnósticas, realizar seguimiento clínico y adoptar las decisiones asistenciales necesarias para la adecuada atención en salud.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Evaluar las condiciones de salud mediante herramientas tecnológicas, formular tratamientos, emitir conceptos médicos, realizar seguimiento clínico remoto y coordinar la continuidad de la atención asistencial cuando la condición clínica del paciente así lo requiera.</p>
+      <h4 class="finalidad"><span>6.</span> EMISIÓN DE DOCUMENTOS MÉDICOS</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Elaborar, expedir y administrar incapacidades médicas, certificados, conceptos, fórmulas, órdenes médicas, remisiones, consentimientos informados y demás documentos derivados de la atención en salud.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Generar, firmar electrónicamente, custodiar y administrar incapacidades, certificados, conceptos, fórmulas, órdenes médicas y demás documentos clínicos electrónicos, garantizando su autenticidad, integridad y disponibilidad.</p>
+      <h4 class="finalidad"><span>7.</span> SEGUIMIENTO CLÍNICO</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Realizar el seguimiento integral de la evolución clínica del paciente mediante controles médicos, valoraciones interdisciplinarias, monitoreo de tratamientos, seguimiento terapéutico, verificación de adherencia, control de resultados clínicos y actualización permanente de la información contenida en la historia clínica, garantizando la continuidad, oportunidad y calidad de la atención en salud.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Realizar seguimiento clínico remoto mediante telemedicina, teleorientación, herramientas digitales y demás mecanismos tecnológicos autorizados, incluyendo el monitoreo de tratamientos, recordatorios asistenciales, seguimiento a resultados diagnósticos y actualización de la historia clínica electrónica, bajo condiciones de seguridad y confidencialidad.</p>
+      <h4 class="finalidad"><span>8.</span> REMISIONES Y COORDINACIÓN ASISTENCIAL</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Gestionar la remisión, contrarreferencia y coordinación de la atención entre profesionales de la salud, Instituciones Prestadoras de Servicios de Salud (IPS), Entidades Promotoras de Salud (EPS), laboratorios clínicos, especialistas y demás prestadores autorizados, cuando ello resulte necesario para garantizar la continuidad del tratamiento y la atención integral del paciente.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Gestionar electrónicamente las remisiones, contrarreferencias e intercambio de información clínica estrictamente necesaria con profesionales de la salud, IPS, EPS, especialistas y demás prestadores autorizados, implementando medidas de seguridad que garanticen la confidencialidad, integridad y disponibilidad de la información.</p>
+      <h4 class="finalidad"><span>9.</span> PROMOCIÓN Y PREVENCIÓN</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Desarrollar programas, campañas, jornadas y actividades orientadas a la promoción de la salud, prevención de la enfermedad, detección temprana, educación sanitaria, vacunación, seguimiento de factores de riesgo y demás acciones encaminadas al mejoramiento de las condiciones de salud de los pacientes y la comunidad.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Ejecutar campañas digitales de promoción de la salud, prevención de la enfermedad, educación sanitaria, recordatorios de controles médicos, vacunación, tamizajes, actividades preventivas y demás programas institucionales mediante plataformas tecnológicas y canales de comunicación autorizados.</p>
+      <h4 class="finalidad"><span>10.</span> HISTORIA CLÍNICA</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Crear, recopilar, registrar, organizar, administrar, actualizar, custodiar, conservar, consultar, acceder, actualizar, corregir, custodiar, conservar, archivar y disponer de la historia clínica únicamente por las personas legalmente autorizadas, garantizando en todo momento el principio de acceso restringido, la reserva legal, la trazabilidad de los accesos y la protección de los datos sensibles contenidos en el régimen de protección de datos personales y en la Ley.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Crear, recopilar, registrar, organizar, administrar, actualizar, custodiar, conservar, consultar, acceder, actualizar, corregir, custodiar, conservar, archivar y disponer de la historia clínica únicamente por las personas legalmente autorizadas, garantizando en todo momento el principio de acceso restringido, la reserva legal, la trazabilidad de los accesos y la protección de los datos sensibles contenidos en el régimen de protección de datos personales y en la Ley.</p>
+      <h4 class="finalidad"><span>11.</span> CONTROL DE ACCESO A LA HISTORIA CLÍNICA</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Gestionar, controlar, registrar y auditar el acceso a las historias clínicas y demás registros asistenciales, permitiendo su consulta únicamente al paciente, al equipo de salud directamente involucrado en su atención, a las autoridades competentes y a las demás personas expresamente autorizadas por la ley o por el titular, según corresponda. Cuando intervengan encargados del tratamiento en actividades relacionadas con la administración, custodia, conservación, digitalización, almacenamiento, interoperabilidad o soporte tecnológico de la historia clínica, estos únicamente podrán tratar la información siguiendo instrucciones documentadas de la IPS, bajo acuerdos de confidencialidad, con acceso limitado al mínimo necesario para el cumplimiento de sus funciones y sin utilizar la información para finalidades distintas a las autorizadas por la ley.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Administrar el acceso a la historia clínica electrónica mediante mecanismos robustos de autenticación, autorización, perfiles de acceso, segregación de funciones, registros de auditoría, trazabilidad y demás controles técnicos y organizacionales que permitan el acceso exclusivamente a las personas autorizadas por la legislación vigente. Los proveedores tecnológicos y demás encargados del tratamiento únicamente podrán acceder a la información cuando ello resulte indispensable para la prestación de los servicios contratados, bajo las instrucciones del responsable del tratamiento, garantizando la confidencialidad, integridad, disponibilidad y reserva legal de la historia clínica.</p>
+      <h4 class="finalidad"><span>12.</span> CONTINUIDAD ASISTENCIAL</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Garantizar la continuidad de la atención mediante la coordinación entre profesionales de la salud, especialidades, instituciones, laboratorios clínicos, servicios diagnósticos y demás actores autorizados del Sistema General de Seguridad Social en Salud, utilizando únicamente la información necesaria para asegurar una atención integral, segura y oportuna.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Garantizar la continuidad asistencial mediante el intercambio seguro de información clínica necesaria entre plataformas tecnológicas, profesionales tratantes y demás actores autorizados del sistema de salud, implementando mecanismos que aseguren la integridad, disponibilidad y confidencialidad de la información.</p>
+      <h4 class="finalidad"><span>13.</span> FACTURACIÓN, CARTERA Y GESTIÓN ADMINISTRATIVA</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Gestionar procesos de facturación, recaudo, cartera, auditoría de cuentas médicas, cobro de copagos, cuotas moderadoras, pagos, devoluciones, conciliaciones y demás actividades administrativas y financieras derivadas de la prestación de los servicios de salud.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Administrar electrónicamente procesos de facturación, pagos en línea, recaudo, conciliación, cartera, auditoría de cuentas médicas y demás actividades financieras relacionadas con la prestación de los servicios de salud, utilizando plataformas seguras y mecanismos de autenticación adecuados.</p>
+      <h4 class="finalidad"><span>14.</span> SERVICIO AL CLIENTE Y GESTIÓN DE PETICIONES</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Atender, gestionar y dar respuesta a consultas, solicitudes, peticiones, quejas, reclamos, sugerencias, felicitaciones, requerimientos de autoridades y demás actuaciones relacionadas con la prestación de los servicios de salud, implementando mecanismos de mejora continua de la atención al usuario.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Gestionar solicitudes, peticiones, quejas, reclamos, sugerencias y demás comunicaciones recibidas mediante canales digitales, plataformas tecnológicas, aplicaciones móviles, correo electrónico, chat institucional y demás medios autorizados, garantizando la trazabilidad de cada actuación.</p>
+      <h4 class="finalidad"><span>15.</span> SISTEMAS DE VIGILANCIA EPIDEMIOLÓGICA (SVE)</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Tratar datos personales y datos sensibles contenidos en la historia clínica ocupacional, exámenes médicos ocupacionales, audiometrías, espirometrías, valoraciones médicas y demás registros asistenciales, con el fin de diseñar, implementar, ejecutar, evaluar y efectuar seguimiento a los Sistemas de Vigilancia Epidemiológica (SVE), incluyendo aquellos relacionados con exposición a ruido, riesgo biomecánico, riesgo psicosocial, riesgo biológico, riesgo químico y demás factores de riesgo laboral, de conformidad con la normativa vigente en Seguridad y Salud en el Trabajo.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Tratar datos personales y datos sensibles contenidos en historias clínicas electrónicas, registros ocupacionales y plataformas tecnológicas para la administración, seguimiento y evaluación de los Sistemas de Vigilancia Epidemiológica (SVE), mediante herramientas seguras que permitan la gestión de indicadores, el seguimiento epidemiológico y la adopción de medidas preventivas, garantizando la confidencialidad y reserva de la información.</p>
+      <h4 class="finalidad"><span>16.</span> TRANSFERENCIA Y TRANSMISIÓN DE DATOS PERSONALES</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Transmitir o transferir datos personales y, cuando resulte procedente, datos sensibles, a responsables o encargados del tratamiento, ubicados dentro o fuera del territorio nacional, cuando ello sea necesario para la prestación de los servicios de salud, la continuidad asistencial, la administración de la historia clínica, la ejecución de auditorías médicas, la implementación de Sistemas de Vigilancia Epidemiológica (SVE), el cumplimiento de obligaciones legales, contractuales o regulatorias y las demás finalidades previstas en la presente política, observando las disposiciones de la Ley 1581 de 2012 y las normas que la modifiquen, adicionen o sustituyan.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Transmitir datos personales y datos sensibles mediante plataformas de historia clínica electrónica, telemedicina, servicios de computación en la nube, herramientas tecnológicas y demás soluciones digitales utilizadas por la IPS, implementando medidas técnicas, administrativas y organizacionales que garanticen la confidencialidad, integridad, disponibilidad y resiliencia de la información.</p>
+      <h4 class="finalidad"><span>17.</span> GESTIÓN DE ENCARGADOS DEL TRATAMIENTO</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Permitir el tratamiento de datos personales y datos sensibles por personas naturales o jurídicas que actúen como encargados del tratamiento, únicamente cuando resulte necesario para la prestación de servicios contratados por la IPS relacionados con tecnologías de la información, almacenamiento documental, digitalización, custodia de historias clínicas, interoperabilidad, apoyo diagnóstico, soporte operativo u otros servicios complementarios legalmente permitidos. Dichos encargados actuarán exclusivamente por cuenta de la IPS, conforme a sus instrucciones, bajo acuerdos de transmisión de datos, cláusulas de confidencialidad y medidas técnicas, administrativas y jurídicas que garanticen la seguridad, reserva y protección de la información, sin que ello implique transferencia de la titularidad de los datos ni autorización para utilizarlos con fines propios.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Permitir que proveedores tecnológicos, operadores de plataformas de historia clínica electrónica, servicios de computación en la nube, operadores de telemedicina, servicios de interoperabilidad, proveedores de ciberseguridad, respaldo de información y demás encargados del tratamiento realicen operaciones sobre datos personales y datos sensibles estrictamente necesarias para la prestación de los servicios contratados, garantizando que dichos terceros implementen controles de acceso, cifrado, trazabilidad, autenticación, segregación de funciones, gestión de incidentes, continuidad del negocio y demás medidas de seguridad exigidas por la legislación colombiana y por los estándares de seguridad de la información aplicables.</p>
+      <h4 class="finalidad"><span>18.</span> GESTIÓN DE LA SEGURIDAD DE LA INFORMACIÓN</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Implementar medidas técnicas, humanas, administrativas y organizacionales destinadas a prevenir el acceso no autorizado, pérdida, alteración, destrucción, divulgación o uso indebido de los datos personales y datos sensibles tratados por la IPS, aplicando criterios de gestión del riesgo, mejora continua y responsabilidad demostrada.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Implementar controles de autenticación, cifrado, monitoreo, gestión de incidentes, respaldo, recuperación de información, trazabilidad, control de accesos y demás mecanismos de seguridad informática destinados a proteger la información tratada mediante plataformas tecnológicas y servicios digitales.</p>
+      <h4 class="finalidad"><span>19.</span> GESTIÓN DE AUDITORÍAS, CUMPLIMIENTO Y CONTROL INTERNO</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Tratar datos personales cuando ello resulte necesario para la ejecución de auditorías médicas, auditorías administrativas, auditorías de calidad, procesos de acreditación, cumplimiento normativo, control interno, gestión del riesgo, inspección, vigilancia y control por parte de autoridades competentes, así como para la adopción de acciones de mejora institucional.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Tratar datos personales mediante herramientas tecnológicas para la realización de auditorías, controles de calidad, seguimiento de indicadores, monitoreo de cumplimiento, generación de reportes y trazabilidad de procesos institucionales, garantizando la confidencialidad y el acceso restringido a la información.</p>
+      <h4 class="finalidad"><span>20.</span> MERCADEO, BENEFICIOS COMERCIALES Y PROGRAMAS DE FIDELIZACIÓN</h4>
+      <p class="modalidad">Servicio presencial</p>
+      <p>Enviar información relacionada con campañas institucionales, jornadas de promoción y prevención, nuevos servicios, promociones, descuentos, beneficios comerciales, convenios, programas de fidelización y demás actividades desarrolladas por la IPS, utilizando los canales autorizados por el titular y respetando las autorizaciones otorgadas para el tratamiento de sus datos personales.</p>
+      <p class="modalidad">Servicio virtual</p>
+      <p>Enviar comunicaciones electrónicas sobre campañas de salud, promociones, descuentos, beneficios comerciales, programas de fidelización, novedades institucionales y servicios digitales de la IPS mediante correo electrónico, mensajes de texto, aplicaciones de mensajería u otros medios autorizados por el titular, de conformidad con las autorizaciones otorgadas y la normativa aplicable.</p>
+      <p>Todas las actividades de tratamiento se realizarán únicamente respecto de los datos personales que resulten adecuados, pertinentes y estrictamente necesarios para el cumplimiento de la finalidad correspondiente, observando los principios de legalidad, finalidad, libertad, transparencia, seguridad, confidencialidad, necesidad y proporcionalidad.</p>
+      <p class="paragrafo"><strong>Parágrafo Primero.</strong></p>
+      <p>Las finalidades previstas en este artículo podrán aplicarse de manera independiente o concurrente, según la naturaleza de la relación existente entre el titular y la <strong>IPS MASMEDICOS IOS S.A.S</strong>, siempre que el tratamiento resulte compatible con la finalidad informada y con las autorizaciones otorgadas por el titular o con las excepciones previstas en la ley.</p>
+      <p class="paragrafo"><strong>Parágrafo Segundo.</strong></p>
+      <p>Cuando el tratamiento involucre datos personales sensibles, datos relativos a la salud, datos biométricos o información contenida en la historia clínica, <strong>IPS MASMEDICOS IOS S.A.S</strong> implementará medidas reforzadas de seguridad, confidencialidad y acceso restringido, garantizando que dicha información sea utilizada exclusivamente para las finalidades autorizadas o legalmente permitidas.</p>
+      <p class="paragrafo"><strong>Parágrafo Tercero.</strong></p>
+      <p>Las finalidades previstas en este artículo podrán ser actualizadas, complementadas o modificadas por <strong>IPS MASMEDICOS IOS S</strong>.<strong>A.S</strong> cuando resulte necesario para atender cambios normativos, tecnológicos, operativos o asistenciales, previa actualización de la presente Política e informando oportunamente a los titulares cuando ello sea legalmente exigible.</p>
     </section>
 
-    <section id="transferencia">
-      <h2>7. TRANSFERENCIA Y TRANSMISIÓN INTERNACIONAL</h2>
-      <p>Los datos podrán almacenarse en servidores ubicados en:</p>
-      <ul>
-        <li>Colombia</li>
-        <li>Estados Unidos</li>
-        <li>Otros países con proveedores que cumplan estándares adecuados de protección</li>
-      </ul>
-      <p>Cuando exista tratamiento en EE. UU. relacionado con datos de salud, IPS MASMEDICOS IOS SAS. y sus proveedores cumplirán los principios y acuerdos requeridos bajo HIPAA, incluyendo:</p>
-      <ul>
-        <li>Cifrado en tránsito y reposo</li>
-        <li>Control estricto de accesos</li>
-        <li>Business Associate Agreements (BAA) cuando aplican</li>
-        <li>Protocolos de auditoría y trazabilidad</li>
-      </ul>
+    <section class="chapter" id="capitulo-vii">
+      <h2><span class="chapter-num">CAPÍTULO VII</span>TRANSFERENCIA, TRANSMISIÓN Y CIRCULACIÓN DE DATOS PERSONALES</h2>
+      <h3 id="articulo-24"><span class="art-num">Artículo 24.</span> Transferencia Nacional e Internacional de Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong>. podrá transferir datos personales a otros responsables del tratamiento ubicados en Colombia o en el exterior cuando ello resulte necesario para el cumplimiento de las finalidades previstas en la presente Política, la prestación de los servicios de salud, el cumplimiento de obligaciones legales o contractuales, o el desarrollo de actividades directamente relacionadas con su objeto social.</p>
+      <p>Toda transferencia de datos personales se realizará observando los principios establecidos en la legislación colombiana sobre protección de datos personales y garantizando un nivel adecuado de protección de la información.</p>
+      <p>Cuando la transferencia tenga como destino un país que no proporcione niveles adecuados de protección de datos personales, <strong>IPS MASMEDICOS IOS S.A.S</strong> únicamente la efectuará en los casos expresamente autorizados por la legislación colombiana o cuando se configure alguna de las excepciones previstas por la ley.</p>
+      <p>En todos los casos, la <strong>IPS</strong> adoptará las medidas jurídicas, contractuales, técnicas y organizacionales necesarias para salvaguardar los derechos de los titulares y garantizar la confidencialidad, integridad y disponibilidad de la información transferida.</p>
+      <h3 id="articulo-25"><span class="art-num">Artículo 25.</span> Transmisión de Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> podrá transmitir datos personales a personas naturales o jurídicas que actúen en calidad de Encargados del Tratamiento, dentro o fuera del territorio colombiano, cuando ello resulte necesario para el desarrollo de actividades ejecutadas por cuenta de la institución.</p>
+      <p>Toda transmisión de datos personales deberá estar soportada en un contrato de transmisión o en un instrumento jurídico equivalente que establezca, como mínimo:</p>
+      <p class="item"><strong>a.</strong> El alcance del tratamiento autorizado.</p>
+      <p class="item"><strong>b.</strong> Las obligaciones del encargado.</p>
+      <p class="item"><strong>c.</strong> Las medidas de seguridad aplicables.</p>
+      <p class="item"><strong>d.</strong> Los deberes de confidencialidad y reserva.</p>
+      <p class="item"><strong>e.</strong> La prohibición de utilizar la información para finalidades distintas de las instruidas por <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <p class="item"><strong>f.</strong> Las condiciones para la devolución, eliminación o conservación de la información una vez finalice la relación contractual.</p>
+      <p class="item"><strong>g.</strong> Los mecanismos de supervisión y auditoría por parte de <strong>IPS MASMEDICOS IOS S.A.S</strong>.</p>
+      <p>Los encargados únicamente podrán tratar los datos personales conforme a las instrucciones impartidas por <strong>IPS MASMEDICOS IOS S.A.S</strong> y en estricto cumplimiento de la legislación vigente.</p>
+      <h3 id="articulo-26"><span class="art-num">Artículo 26.</span> Transmisión a Proveedores Tecnológicos y Aliados Estratégicos</h3>
+      <p>En desarrollo de sus actividades asistenciales, administrativas y tecnológicas, <strong>IPS MASMEDICOS IOS S.A.S</strong> podrá transmitir datos personales a proveedores tecnológicos, operadores de plataformas de historia clínica electrónica, proveedores de servicios de computación en la nube, laboratorios clínicos, centros de diagnóstico, entidades administradoras del sistema de salud, operadores logísticos, prestadores de servicios de telemedicina, proveedores de almacenamiento documental, empresas de auditoría, consultores especializados y demás aliados estratégicos cuya participación resulte necesaria para la adecuada prestación de los servicios de salud.</p>
+      <p>En todos los casos, <strong>IPS MASMEDICOS IOS S.A.S</strong> verificará previamente que dichos terceros implementen medidas apropiadas de seguridad de la información y protección de datos personales, suscribiendo los acuerdos de confidencialidad y de tratamiento de datos que resulten procedentes.</p>
+      <p>Cuando el tratamiento involucre datos personales sensibles o información contenida en historias clínicas, la <strong>IPS</strong> exigirá la implementación de controles reforzados de seguridad y confidencialidad, así como mecanismos de trazabilidad, autenticación y control de accesos.</p>
+      <h3 id="articulo-27"><span class="art-num">Artículo 27.</span> Transferencia o Comunicación de Datos por Mandato Legal</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> podrá comunicar o suministrar datos personales a autoridades judiciales, administrativas, organismos de control, entidades del Sistema General de Seguridad Social en Salud y demás autoridades competentes, cuando exista un deber constitucional o legal que así lo exija.</p>
+      <p>La entrega de información se limitará a aquella estrictamente necesaria para el cumplimiento de la finalidad legal que motive el requerimiento y se efectuará observando los principios de necesidad, proporcionalidad, confidencialidad y reserva legal.</p>
+      <p>Cuando la solicitud recaiga sobre historias clínicas o información sometida a reserva especial, la <strong>IPS</strong> verificará previamente la competencia de la autoridad solicitante y el cumplimiento de los requisitos establecidos en la normativa aplicable.</p>
+      <h3 id="articulo-28"><span class="art-num">Artículo 28.</span> Transferencias Internacionales y Servicios de Computación en la Nube</h3>
+      <p>Cuando <strong>IPS MASMEDICOS IOS S.A.S</strong> utilice servicios de almacenamiento, procesamiento, respaldo, alojamiento o administración de información en infraestructuras tecnológicas ubicadas fuera del territorio colombiano, verificará que el proveedor ofrezca condiciones adecuadas de seguridad de la información y protección de datos personales.</p>
+      <p>Para estos efectos, la <strong>IPS</strong> implementará medidas contractuales, técnicas y organizacionales destinadas a garantizar:</p>
+      <p class="item"><strong>a.</strong> La confidencialidad, integridad, disponibilidad y resiliencia de la información.</p>
+      <p class="item"><strong>b.</strong> La continuidad de los servicios y la recuperación de la información ante incidentes.</p>
+      <p class="item"><strong>c.</strong> La protección de los datos personales durante su transmisión y almacenamiento.</p>
+      <p class="item"><strong>d.</strong> La restricción de accesos no autorizados.</p>
+      <p class="item"><strong>e.</strong> El cumplimiento de las obligaciones previstas en la legislación colombiana sobre protección de datos personales.</p>
+      <p>Cuando el tratamiento de datos relativos a la salud se realice en servidores ubicados en los Estados Unidos de América, se aplicarán adicionalmente las medidas previstas en el Artículo 44 de la presente Política.</p>
+      <p>La utilización de servicios de computación en la nube no modificará la responsabilidad que corresponde a <strong>IPS MASMEDICOS IOS S.A.S</strong> como Responsable del Tratamiento frente a los titulares de la información.</p>
     </section>
 
-    <section id="derechos">
-      <h2>8. DERECHOS DE LOS TITULARES</h2>
-      <p>Los titulares podrán ejercer los siguientes derechos:</p>
-      <ul>
-        <li>Conocer, acceder y obtener copia de sus datos personales o de salud.</li>
-        <li>Actualizar, rectificar y suprimir información.</li>
-        <li>Solicitar prueba de la autorización otorgada.</li>
-        <li>Ser informados sobre el uso de sus datos.</li>
-        <li>Presentar quejas ante la Superintendencia de Industria y Comercio.</li>
-        <li>Revocar la autorización cuando sea procedente.</li>
-      </ul>
-      <p>Para ejercer estos derechos, el usuario podrá contactarnos en: <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+    <section class="chapter" id="capitulo-viii">
+      <h2><span class="chapter-num">CAPÍTULO VIII</span>SEGURIDAD DE LA INFORMACIÓN, GESTIÓN DE INCIDENTES Y RESPONSABILIDAD DEMOSTRADA (ACCOUNTABILITY)</h2>
+      <h3 id="articulo-29"><span class="art-num">Artículo 29.</span> Sistema de Gestión para la Protección de Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> implementará y mantendrá un Sistema de Gestión para la Protección de Datos Personales, integrado por políticas, procedimientos, controles, herramientas tecnológicas y medidas organizacionales destinadas a garantizar la confidencialidad, integridad, disponibilidad, autenticidad, trazabilidad y resiliencia de la información personal tratada por la institución.</p>
+      <p>El Sistema de Gestión se desarrollará bajo un enfoque basado en riesgos y comprenderá acciones de prevención, detección, respuesta, recuperación y mejora continua, procurando la protección de los datos personales durante todo su ciclo de vida.</p>
+      <p>La implementación de dicho sistema deberá guardar armonía con las obligaciones previstas en el régimen colombiano de protección de datos personales, la normativa aplicable al sector salud y las políticas internas de seguridad de la información adoptadas por la institución.</p>
+      <h3 id="articulo-30"><span class="art-num">Artículo 30.</span> Medidas de Seguridad de la Información</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> adoptará medidas técnicas, administrativas, físicas, jurídicas y organizacionales razonables y proporcionales al riesgo, con el propósito de prevenir la alteración, pérdida, destrucción, acceso, uso, divulgación, modificación o tratamiento no autorizado de los datos personales.</p>
+      <p>Entre otras, la <strong>IPS</strong> podrá implementar las siguientes medidas:</p>
+      <p class="item"><strong>a.</strong> Controles de acceso físico y lógico a las instalaciones, equipos y sistemas de información.</p>
+      <p class="item"><strong>b.</strong> Administración de perfiles de usuario y privilegios de acceso conforme al principio de mínimo privilegio.</p>
+      <p class="item"><strong>c.</strong> Mecanismos de autenticación segura.</p>
+      <p class="item"><strong>d.</strong> Cifrado de la información cuando resulte técnica y jurídicamente procedente.</p>
+      <p class="item"><strong>e.</strong> Copias de seguridad y planes de recuperación de la información.</p>
+      <p class="item"><strong>f.</strong> Registros de auditoría y trazabilidad de los accesos a los sistemas de información.</p>
+      <p class="item"><strong>g.</strong> Protección contra software malicioso y demás amenazas informáticas.</p>
+      <p class="item"><strong>h.</strong> Gestión de vulnerabilidades y actualización de plataformas tecnológicas.</p>
+      <p class="item"><strong>i.</strong> Políticas de escritorio limpio y manejo seguro de documentos físicos y electrónicos.</p>
+      <p class="item"><strong>j.</strong> Protocolos de confidencialidad para trabajadores, contratistas y terceros.</p>
+      <p class="item"><strong>k.</strong> Procedimientos de conservación, archivo y eliminación segura de la información.</p>
+      <p class="item"><strong>l.</strong> Cualquier otra medida que resulte necesaria de acuerdo con la evolución tecnológica, la naturaleza de los datos tratados y los riesgos identificados.</p>
+      <p>La adopción de estas medidas no implica una obligación de resultado frente a la ocurrencia de incidentes de seguridad, sino el deber permanente de implementar controles adecuados y razonables para reducir los riesgos asociados al tratamiento de datos personales.</p>
+      <h3 id="articulo-31"><span class="art-num">Artículo 31.</span> Gestión de Incidentes de Seguridad</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> establecerá procedimientos internos para la identificación, registro, análisis, contención, mitigación, recuperación y documentación de los incidentes de seguridad que puedan comprometer la confidencialidad, integridad, disponibilidad o autenticidad de los datos personales.</p>
+      <p>Se considerará incidente de seguridad cualquier evento que genere o pueda generar destrucción, pérdida, alteración, divulgación, acceso o tratamiento no autorizado de datos personales.</p>
+      <p>Cuando un incidente pueda afectar los derechos de los titulares o así lo exija la legislación vigente, <strong>IPS MASMEDICOS IOS S.A.S</strong> realizará las notificaciones correspondientes a la Superintendencia de Industria y Comercio y adoptará las medidas necesarias para reducir el impacto del incidente, prevenir su repetición y documentar las acciones correctivas implementadas.</p>
+      <p>La <strong>IPS</strong> conservará los registros relacionados con los incidentes de seguridad y las acciones de respuesta adoptadas, de conformidad con sus políticas internas y la normatividad vigente.</p>
+      <h3 id="articulo-32"><span class="art-num">Artículo 32.</span> Responsabilidad Demostrada (Accountability)</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong>, en su calidad de Responsable del Tratamiento, adoptará un modelo de responsabilidad demostrada orientado a acreditar el cumplimiento permanente del régimen de protección de datos personales.</p>
+      <p>Para tal efecto, la institución podrá implementar, entre otras, las siguientes acciones:</p>
+      <p class="item"><strong>a.</strong> Elaboración y actualización de políticas internas de protección de datos personales.</p>
+      <p class="item"><strong>b.</strong> Inventario y administración de las bases de datos personales.</p>
+      <p class="item"><strong>c.</strong> Identificación y evaluación periódica de riesgos asociados al tratamiento de datos personales.</p>
+      <p class="item"><strong>d.</strong> Programas de capacitación y sensibilización dirigidos al personal.</p>
+      <p class="item"><strong>e.</strong> Acuerdos de confidencialidad con trabajadores, contratistas y proveedores.</p>
+      <p class="item"><strong>f.</strong> Auditorías internas y revisiones periódicas del cumplimiento normativo.</p>
+      <p class="item"><strong>g.</strong> Evaluación y seguimiento de los encargados del tratamiento.</p>
+      <p class="item"><strong>h.</strong> Documentación de incidentes de seguridad y acciones correctivas.</p>
+      <p class="item"><strong>i.</strong> Conservación de evidencias que permitan demostrar el cumplimiento de las obligaciones legales.</p>
+      <p class="item"><strong>j.</strong> Implementación de procesos de mejora continua en materia de protección de datos personales.</p>
+      <p>La implementación del principio de responsabilidad demostrada permitirá a <strong>IPS MASMEDICOS IOS S.A.S</strong> evidenciar ante los titulares y las autoridades competentes el cumplimiento efectivo de las obligaciones derivadas del régimen colombiano de protección de datos personales.</p>
+      <h3 id="articulo-33"><span class="art-num">Artículo 33.</span> Privacidad desde el Diseño y por Defecto</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> incorporará criterios de protección de datos personales desde el diseño, desarrollo, adquisición, implementación y actualización de sus procesos, procedimientos, servicios, tecnologías y sistemas de información.</p>
+      <p>La institución procurará que, por defecto, únicamente sean recolectados y tratados los datos personales estrictamente necesarios para el cumplimiento de cada finalidad, limitando el acceso a la información al personal autorizado y durante el tiempo requerido para satisfacer las obligaciones legales, contractuales y asistenciales.</p>
+      <p>En el desarrollo de nuevos proyectos, herramientas tecnológicas o procesos institucionales que impliquen tratamiento de datos personales, <strong>IPS MASMEDICOS IOS S.A.S</strong> evaluará previamente los riesgos asociados a la privacidad y adoptará las medidas necesarias para garantizar la protección de los derechos de los titulares.</p>
     </section>
 
-    <section id="procedimientos">
-      <h2>9. PROCEDIMIENTOS PARA CONSULTAS Y RECLAMOS</h2>
-      <p>IPS MASMEDICOS IOS SAS. pone a disposición del titular los siguientes mecanismos:</p>
-      <ul>
-        <li><strong>Consultas:</strong> Serán resueltas en un término máximo de 10 días hábiles.</li>
-        <li><strong>Reclamos:</strong> Se resolverán dentro de los 15 días hábiles siguientes a la recepción.</li>
-      </ul>
-      <p>En caso de requerir información adicional, se pausará el término legal hasta recibirla.</p>
+    <section class="chapter" id="capitulo-ix">
+      <h2><span class="chapter-num">CAPÍTULO IX</span>PROCEDIMIENTO PARA EL EJERCICIO DE LOS DERECHOS DE LOS TITULARES</h2>
+      <h3 id="articulo-34"><span class="art-num">Artículo 34.</span> Área Responsable de la Atención de Consultas y Reclamos</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> designará el área, dependencia o funcionario responsable de recibir, tramitar y responder las consultas, reclamos, solicitudes, peticiones y demás actuaciones relacionadas con el ejercicio del derecho de hábeas data.</p>
+      <p>Las solicitudes podrán presentarse a través de los canales oficiales habilitados por la institución, especialmente mediante:</p>
+      <p class="def"><strong>Correo electrónico:</strong> <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+      <p class="def"><strong>Dirección física:</strong> Carrera 64 A No. 78-581, Medellín, Antioquia.</p>
+      <p>La <strong>IPS</strong> podrá habilitar canales tecnológicos adicionales para facilitar el ejercicio de los derechos de los titulares.</p>
+      <h3 id="articulo-35"><span class="art-num">Artículo 35.</span> Derecho de Consulta</h3>
+      <p>El titular o cualquiera de las personas legitimadas podrá consultar gratuitamente la información personal que repose en las bases de datos administradas por <strong>IPS</strong> <strong>MASMEDICOS IOS S.A.S</strong>.</p>
+      <p>Las consultas deberán contener, como mínimo:</p>
+      <p class="item"><strong>a.</strong> Nombre completo del solicitante.</p>
+      <p class="item"><strong>b.</strong> Tipo y número de documento de identificación.</p>
+      <p class="item"><strong>c.</strong> Datos de contacto para recibir la respuesta.</p>
+      <p class="item"><strong>d.</strong> Descripción clara de la consulta.</p>
+      <p class="item"><strong>e.</strong> Documentos que acrediten la legitimación cuando actúe un representante, apoderado o causahabiente.</p>
+      <p>La consulta será atendida dentro de los diez (10) días hábiles siguientes a la fecha de su recepción.</p>
+      <p>Cuando no fuere posible atender la consulta dentro del término previsto, <strong>IPS MASMEDICOS IOS S.A.S</strong> informará al interesado, antes del vencimiento del plazo, las razones de la demora y la fecha en la cual será atendida, la cual no podrá superar cinco (5) días hábiles adicionales.</p>
+      <h3 id="articulo-36"><span class="art-num">Artículo 36.</span> Derecho de Reclamo</h3>
+      <p>El titular o las personas legitimadas podrán presentar reclamos cuando consideren que la información tratada por <strong>IPS MASMEDICOS IOS S.A.S</strong> deba ser objeto de corrección, actualización, supresión, revocatoria de la autorización o cuando adviertan un presunto incumplimiento de la legislación sobre protección de datos personales.</p>
+      <p>El reclamo deberá contener como mínimo:</p>
+      <p class="item"><strong>a.</strong> Identificación del titular.</p>
+      <p class="item"><strong>b.</strong> Identificación del solicitante, cuando actúe por intermedio de representante o apoderado.</p>
+      <p class="item"><strong>c.</strong> Descripción clara y precisa de los hechos que originan el reclamo.</p>
+      <p class="item"><strong>d.</strong> Los documentos que se pretendan hacer valer.</p>
+      <p class="item"><strong>e.</strong> Dirección física o electrónica para recibir la respuesta.</p>
+      <p>Cuando el reclamo se encuentre incompleto, <strong>IPS MASMEDICOS IOS S.A.S</strong> requerirá al interesado dentro de los cinco (5) días hábiles siguientes a su recepción para que subsane las inconsistencias.</p>
+      <p>Si transcurridos dos (2) meses desde el requerimiento el solicitante no presenta la información solicitada, se entenderá que ha desistido del reclamo.</p>
+      <p>Una vez recibido el reclamo completo, se incorporará en la base de datos la leyenda <strong>"Reclamo en trámite"</strong>, junto con el motivo correspondiente, dentro de los dos (2) días hábiles siguientes.</p>
+      <p>El término máximo para resolver el reclamo será de quince (15) días hábiles contados a partir del día siguiente al de su recepción.</p>
+      <p>Cuando no sea posible atenderlo dentro de dicho término, <strong>IPS MASMEDICOS IOS S.A.S</strong>. informará al interesado los motivos de la demora antes del vencimiento del plazo inicial, indicando la nueva fecha de respuesta, la cual no podrá superar ocho (8) días hábiles adicionales.</p>
+      <h3 id="articulo-37"><span class="art-num">Artículo 37.</span> Rectificación, Actualización y Supresión de Datos Personales</h3>
+      <p>Los titulares podrán solicitar la rectificación, actualización o supresión de sus datos personales cuando consideren que la información administrada por <strong>IPS MASMEDICOS IOS S.A.S</strong> resulte incompleta, inexacta, desactualizada o cuando el tratamiento no observe los principios, derechos y garantías previstos en la legislación vigente.</p>
+      <p>La solicitud será evaluada conforme a las circunstancias particulares del caso y atendida dentro de los términos previstos para los reclamos.</p>
+      <p>La supresión de los datos personales no procederá cuando exista un deber legal, contractual, administrativo, judicial o de interés público que obligue a <strong>IPS MASMEDICOS IOS S.A.S</strong> a conservar la información, especialmente cuando se trate de historias clínicas, registros asistenciales, documentos médicos o información cuya conservación sea exigida por la legislación del sector salud.</p>
+      <h3 id="articulo-38"><span class="art-num">Artículo 38.</span> Revocatoria de la Autorización</h3>
+      <p>El titular podrá solicitar la revocatoria de la autorización otorgada para el tratamiento de sus datos personales cuando no exista un deber legal o contractual que justifique la continuidad del tratamiento.</p>
+      <p>La revocatoria podrá ser total o parcial, según lo solicite el titular y siempre que ello resulte compatible con las obligaciones legales de IPS MASMEDICOS IOS S.A.S.</p>
+      <p>La revocatoria no afectará la licitud del tratamiento efectuado con anterioridad a la fecha en que la misma produzca efectos.</p>
+      <h3 id="articulo-39"><span class="art-num">Artículo 39.</span> Requisito de Procedibilidad ante la Superintendencia de Industria y Comercio</h3>
+      <p>De conformidad con la legislación vigente, el titular o la persona legitimada deberá agotar previamente el trámite de consulta o reclamo ante <strong>IPS MASMEDICOS IOS S.A.S</strong> antes de acudir ante la Superintendencia de Industria y Comercio para la protección de sus derechos en materia de tratamiento de datos personales, salvo las excepciones previstas por la ley.</p>
+      <p>La <strong>IPS</strong> conservará evidencia de las actuaciones adelantadas con ocasión de las consultas y reclamos, como parte de su sistema de gestión de protección de datos personales.</p>
+      <h3 id="articulo-40"><span class="art-num">Artículo 40.</span> Gratuidad del Ejercicio de los Derechos</h3>
+      <p>El ejercicio de los derechos previstos en la presente Política será gratuito para los titulares.</p>
+      <p>No obstante, cuando una misma persona formule solicitudes sucesivas respecto de un mismo asunto sin que existan hechos nuevos que las justifiquen, <strong>IPS MASMEDICOS IOS S.A.S</strong> podrá aplicar las reglas previstas en la legislación vigente, sin perjuicio del respeto por el derecho fundamental de hábeas data.</p>
+      <p>La atención de las consultas y reclamos no generará costo alguno para el titular, salvo los gastos de reproducción, autenticación o envío de documentos cuando sean legalmente procedentes y hayan sido previamente informados al solicitante.</p>
     </section>
 
-    <section id="seguridad">
-      <h2>10. SEGURIDAD DE LA INFORMACIÓN</h2>
-      <p>IPS MASMEDICOS IOS SAS. implementa medidas de seguridad administrativas, técnicas y tecnológicas, tales como:</p>
-      <ul>
-        <li>Cifrado de datos (TLS/HTTPS – AES 256).</li>
-        <li>Gestión de accesos basada en roles.</li>
-        <li>Registro de auditorías clínicas.</li>
-        <li>Monitoreo de incidentes.</li>
-        <li>Servidores certificados y respaldos periódicos.</li>
-      </ul>
-      <p>No obstante, ningún sistema es completamente infalible; sin embargo, la Compañía se compromete a aplicar las mejores prácticas disponibles para proteger la información.</p>
+    <section class="chapter" id="capitulo-x">
+      <h2><span class="chapter-num">CAPÍTULO X</span>TRATAMIENTO DE DATOS EN EL APLICATIVO CONMISMÉDICOS</h2>
+      <h3 id="articulo-41"><span class="art-num">Artículo 41.</span> Tratamiento de Datos Personales a través del Aplicativo ConMisMédicos</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> presta servicios de salud asistida y telemedicina mediante el aplicativo móvil <strong>ConMisMédicos</strong> (en adelante, el "Aplicativo"). Las disposiciones de la presente Política son plenamente aplicables a los datos personales recolectados y tratados a través del Aplicativo, sin perjuicio de las reglas especiales previstas en este capítulo.</p>
+      <p>A través del Aplicativo, la <strong>IPS</strong> podrá recolectar y tratar las siguientes categorías de datos personales:</p>
+      <p class="item"><strong>a. Datos de identificación y contacto:</strong> nombre, tipo y número de documento, correo electrónico, teléfono, fecha de nacimiento, dirección, fotografía y demás datos de contacto.</p>
+      <p class="item"><strong>b. Datos sensibles relativos a la salud:</strong> historia clínica, diagnósticos, resultados de exámenes, antecedentes, medicamentos, signos vitales, motivos de consulta y documentos médicos.</p>
+      <p class="item"><strong>c. Datos técnicos y de uso:</strong> dirección IP, tipo de dispositivo, sistema operativo, identificadores únicos, registros de actividad en el Aplicativo, fallas, tiempos de uso y navegación interna.</p>
+      <p>Los datos recolectados a través del Aplicativo serán tratados para las siguientes finalidades:</p>
+      <p class="item"><strong>a.</strong> Prestación de servicios de telemedicina y atención médica remota.</p>
+      <p class="item"><strong>b.</strong> Acceso, registro y actualización de información clínica relevante, así como la generación de historias clínicas digitales, evoluciones, diagnósticos y recomendaciones.</p>
+      <p class="item"><strong>c.</strong> Comunicación directa entre pacientes y profesionales de la salud.</p>
+      <p class="item"><strong>d.</strong> Programación de citas, recordatorios y seguimiento médico.</p>
+      <p class="item"><strong>e.</strong> Creación y gestión de cuentas de usuario, autenticación segura, validación de identidad y prevención del fraude.</p>
+      <p class="item"><strong>f.</strong> Facturación, soporte, auditoría y gestión de peticiones, quejas y reclamos (PQR).</p>
+      <p class="item"><strong>g.</strong> Optimización y mejora continua del Aplicativo, análisis de desempeño, métricas de uso y seguridad informática.</p>
+      <p class="item"><strong>h.</strong> Monitoreo de accesos y detección de actividades irregulares.</p>
+      <h3 id="articulo-42"><span class="art-num">Artículo 42.</span> Permisos del Dispositivo Móvil</h3>
+      <p>Para el adecuado funcionamiento de los servicios asistenciales, el Aplicativo podrá solicitar al usuario acceso a los siguientes permisos de su dispositivo móvil:</p>
+      <p class="item"><strong>a. Cámara:</strong> para la realización de videoconsultas y la captura de documentos médicos o de identificación.</p>
+      <p class="item"><strong>b. Micrófono:</strong> para la realización de teleconsultas por voz y videoconsultas.</p>
+      <p class="item"><strong>c. Almacenamiento:</strong> para cargar y descargar exámenes, fórmulas, incapacidades y demás soportes médicos.</p>
+      <p class="item"><strong>d. Notificaciones:</strong> para el envío de recordatorios de citas, avisos clínicos y comunicaciones relacionadas con la atención.</p>
+      <p>Estos permisos serán utilizados exclusivamente para las funciones asistenciales del servicio y únicamente mientras el usuario utilice la funcionalidad correspondiente. El acceso a cada permiso será solicitado de manera previa a través del sistema operativo del dispositivo, y el usuario podrá otorgarlo, negarlo o revocarlo en cualquier momento desde la configuración de su dispositivo, entendiendo que la negativa o revocatoria podrá limitar el uso de algunas funcionalidades del Aplicativo.</p>
+      <h3 id="articulo-43"><span class="art-num">Artículo 43.</span> Cumplimiento de las Políticas de Google Play</h3>
+      <p>El tratamiento de datos personales realizado a través del Aplicativo se sujetará, además de la legislación colombiana, a las políticas y lineamientos de Google Play para el tratamiento de datos de usuarios y el uso de permisos sensibles.</p>
+      <p>En consecuencia, <strong>IPS MASMEDICOS IOS S.A.S</strong> <strong>NO</strong> utilizará los datos personales o sensibles recolectados a través del Aplicativo para:</p>
+      <p class="item"><strong>a.</strong> Publicidad no autorizada por el titular.</p>
+      <p class="item"><strong>b.</strong> La venta o cesión de bases de datos.</p>
+      <p class="item"><strong>c.</strong> Fines distintos a los previstos en la presente Política.</p>
+      <p>El usuario podrá solicitar en cualquier momento la eliminación de su cuenta y de los datos personales asociados a ella, a través del correo electrónico <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a>, conforme al procedimiento de supresión previsto en la presente Política. Lo anterior, sin perjuicio de la conservación de la historia clínica y de la demás información que deba mantenerse por mandato legal.</p>
+      <h3 id="articulo-44"><span class="art-num">Artículo 44.</span> Tratamiento de Datos de Salud en los Estados Unidos (HIPAA)</h3>
+      <p>Los datos personales tratados a través del Aplicativo podrán almacenarse en servidores ubicados en Colombia, en los Estados Unidos de América o en otros países cuyos proveedores cumplan estándares adecuados de protección de datos personales.</p>
+      <p>Cuando exista tratamiento de datos de salud en territorio de los Estados Unidos, <strong>IPS MASMEDICOS IOS S.A.S</strong> y sus proveedores cumplirán los principios y acuerdos exigidos por la <em>Health Insurance Portability and Accountability Act</em> (HIPAA) para la protección de la Información de Salud Protegida (PHI), incluyendo:</p>
+      <p class="item"><strong>a.</strong> Cifrado de la información en tránsito y en reposo (TLS/HTTPS – AES 256).</p>
+      <p class="item"><strong>b.</strong> Control estricto de accesos y gestión de accesos basada en roles.</p>
+      <p class="item"><strong>c.</strong> Suscripción de Acuerdos de Asociado Comercial (<em>Business Associate Agreements</em> – BAA) cuando resulten aplicables.</p>
+      <p class="item"><strong>d.</strong> Protocolos de auditoría, trazabilidad y registro de auditorías clínicas.</p>
+      <p class="item"><strong>e.</strong> Monitoreo de incidentes, servidores certificados y respaldos periódicos de la información.</p>
+      <p>La aplicación de los estándares HIPAA es complementaria y no sustituye las obligaciones previstas en la legislación colombiana sobre protección de datos personales, que continuará rigiendo el tratamiento realizado por la <strong>IPS</strong>.</p>
     </section>
 
-    <section id="vigencia">
-      <h2>11. VIGENCIA Y MODIFICACIONES DE LA POLÍTICA</h2>
-      <p>Esta Política entra en vigencia a partir de su publicación y podrá ser modificada en cualquier momento. Cualquier actualización será informada a los titulares a través del aplicativo ConMisMédicos o por correo electrónico.</p>
+    <section class="chapter" id="capitulo-xi">
+      <h2><span class="chapter-num">CAPÍTULO XI</span>DISPOSICIONES FINALES</h2>
+      <h3 id="articulo-45"><span class="art-num">Artículo 45.</span> Conservación de los Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> conservará los datos personales únicamente durante el tiempo que resulte necesario para cumplir las finalidades del tratamiento previstas en la presente Política, las obligaciones legales, regulatorias, contractuales, asistenciales, contables, tributarias, administrativas y demás disposiciones que resulten aplicables.</p>
+      <p>Una vez desaparezca la finalidad que justificó el tratamiento y siempre que no exista un deber legal o contractual de conservación, los datos personales serán eliminados, suprimidos, anonimizados o archivados de manera segura, según corresponda.</p>
+      <p>Tratándose de historias clínicas y demás documentos sometidos a conservación obligatoria, <strong>IPS MASMEDICOS IOS S.A.S</strong> observará los términos de retención documental previstos en la legislación colombiana, las Tablas de Retención Documental (TRD), las Tablas de Valoración Documental (TVD), cuando resulten aplicables, y las demás normas especiales que regulen la materia.</p>
+      <h3 id="articulo-46"><span class="art-num">Artículo 46.</span> Actualización de la Política de Tratamiento de Datos Personales</h3>
+      <p><strong>IPS MASMEDICOS IOS S.A.S</strong> podrá modificar, actualizar, complementar o sustituir total o parcialmente la presente Política cuando:</p>
+      <p class="item"><strong>a.</strong> Se produzcan modificaciones en la legislación aplicable.</p>
+      <p class="item"><strong>b.</strong> Existan cambios en la estructura organizacional de la institución.</p>
+      <p class="item"><strong>c.</strong> Se implementen nuevos procesos, servicios o tecnologías que impliquen tratamiento de datos personales.</p>
+      <p class="item"><strong>d.</strong> Se identifiquen nuevos riesgos para la privacidad o la seguridad de la información.</p>
+      <p class="item"><strong>e.</strong> Resulten necesarias mejoras derivadas de procesos de auditoría, gestión del riesgo, cumplimiento normativo o mejora continua.</p>
+      <p>Toda modificación sustancial que afecte las finalidades del tratamiento o los derechos de los titulares será comunicada oportunamente mediante los canales institucionales que <strong>IPS MASMEDICOS IOS S.A.S</strong> considere idóneos, sin perjuicio de la obtención de una nueva autorización cuando así lo exija la legislación vigente.</p>
+      <h3 id="articulo-47"><span class="art-num">Artículo 47.</span> Divulgación y Disponibilidad de la Política</h3>
+      <p>La presente Política permanecerá a disposición de los titulares de los datos personales a través de los canales oficiales de <strong>IPS MASMEDICOS IOS S.A.S</strong>, incluyendo, cuando resulte aplicable:</p>
+      <p class="item"><strong>a.</strong> Sitio web institucional.</p>
+      <p class="item"><strong>b.</strong> Instalaciones físicas de la <strong>IPS</strong>.</p>
+      <p class="item"><strong>c.</strong> Correo electrónico institucional.</p>
+      <p class="item"><strong>d.</strong> Plataformas digitales utilizadas para la prestación de los servicios.</p>
+      <p class="item"><strong>e.</strong> Cualquier otro medio físico o electrónico que permita garantizar su consulta permanente.</p>
+      <p>Los titulares podrán solicitar en cualquier momento copia de la presente Política mediante los canales de atención habilitados por la institución.</p>
+      <h3 id="articulo-48"><span class="art-num">Artículo 48.</span> Interpretación e Integración Normativa</h3>
+      <p>La presente Política deberá interpretarse de conformidad con los principios constitucionales que protegen el derecho fundamental al hábeas data, la intimidad, el buen nombre y la autodeterminación informática, así como con la legislación colombiana vigente en materia de protección de datos personales y la regulación especial aplicable al sector salud.</p>
+      <p>En aquellos aspectos no regulados expresamente en esta Política, se aplicarán las disposiciones contenidas en la Constitución Política, la Ley 1581 de 2012, el Decreto Único Reglamentario 1074 de 2015, la normativa sanitaria vigente, las instrucciones impartidas por la Superintendencia de Industria y Comercio y las demás disposiciones que las modifiquen, adicionen o sustituyan.</p>
+      <h3 id="articulo-49"><span class="art-num">Artículo 49.</span> Vigencia</h3>
+      <p>La presente Política de Tratamiento de Datos Personales fue aprobada por <strong>IPS MASMEDICOS IOS S.A.S</strong> y rige a partir de su fecha de adopción.</p>
+      <p>La presente Política permanecerá vigente mientras <strong>IPS MASMEDICOS IOS S.A.S</strong> realice tratamiento de datos personales y hasta tanto sea modificada, sustituida o derogada mediante el procedimiento interno correspondiente.</p>
+      <p>Las bases de datos administradas por <strong>IPS MASMEDICOS IOS S.A.S</strong> permanecerán vigentes durante el tiempo necesario para el cumplimiento de las finalidades que justifican su tratamiento y por los períodos adicionales que establezca la legislación colombiana para efectos de conservación documental, responsabilidades legales, administrativas, fiscales, contables, sanitarias, judiciales o de cualquier otra naturaleza.</p>
+      <h3 id="articulo-50"><span class="art-num">Artículo 50.</span> Derogatorias</h3>
+      <p>La presente Política deroga todas las disposiciones internas de <strong>IPS MASMEDICOS IOS S.A.S</strong> que le sean contrarias y sustituye cualquier política, procedimiento, instructivo o lineamiento previamente adoptado en materia de tratamiento de datos personales, sin perjuicio de la vigencia de los procedimientos internos que desarrollen aspectos específicos de su implementación y que sean compatibles con este documento.</p>
+      <h3 id="articulo-51"><span class="art-num">Artículo 51.</span> Aprobación</h3>
+      <p>La presente Política de Tratamiento de Datos Personales es adoptada por <strong>IPS MASMEDICOS IOS S.A.S</strong> como instrumento corporativo para garantizar el cumplimiento del régimen colombiano de protección de datos personales, promover una cultura organizacional de respeto por la privacidad y fortalecer los mecanismos de gobernanza de la información en el desarrollo de sus actividades asistenciales, administrativas y comerciales.</p>
+      <p>Corresponderá a la Representación Legal velar por su implementación, divulgación, seguimiento y actualización, con el apoyo de las dependencias responsables del tratamiento de datos personales y de los demás órganos de dirección, administración y control de la institución.</p>
     </section>
 
-    <section id="contacto" class="contact">
-      <h2>12. CONTACTO</h2>
-      <p>Para ejercer derechos, solicitar información o reportar incidentes relacionados con datos personales:</p>
-      <p><strong>IPS MASMEDICOS IOS SAS.</strong></p>
-      <p>Correo: <a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
-      <p>Teléfono: <a href="tel:+573012519764">+57 301 251 9764</a></p>
-      <p>Dirección: Carrera 64 a n 78-581, Medellín, Colombia</p>
-    </section>
-
-    <footer>
-      <p>Documento generado automáticamente. Para actualizaciones o solicitudes especiales, contacte al correo indicado.</p>
+    <footer class="doc-footer">
+      <div class="contact">
+        <p class="tag">Médico especialista en Seguridad y Salud en el Trabajo</p>
+        <p class="addr">Carrera 64a N 78-581<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><a href="tel:+573012519764">3012519764</a></p>
+        <p class="mail"><a href="mailto:gerenciamasmedicos@masmedellin.com">gerenciamasmedicos@masmedellin.com</a></p>
+      </div>
+      <div class="wave" aria-hidden="true">
+        <svg viewBox="0 0 360 240" preserveAspectRatio="none">
+          <polygon points="104,130 116,130 12,240 0,240" fill="#292a36"/>
+          <polygon points="116,130 248,130 148,240 12,240" fill="#68c0de"/>
+          <polygon points="360,0 360,240 148,240" fill="#004084"/>
+        </svg>
+        <img src="assets/logo-conmismedicos.jpg" alt="">
+      </div>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
